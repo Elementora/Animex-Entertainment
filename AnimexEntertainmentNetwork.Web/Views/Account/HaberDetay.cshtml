@@ -1,0 +1,790 @@
+﻿
+@{
+    ViewBag.Title = "HaberDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+@model AnimexEntertainmentNetwork.Web.Models.RESIMEKLE
+
+
+<script src="~/AdminLTE-2.0.3/plugins/jQuery/jQuery-2.1.3.min.js" type="text/javascript"></script>
+<center><h2>Haber Güncelleme Ekranı</h2></center>
+
+
+<input type="hidden" value="@ViewData["ID"].ToString()" id="ID" name="ID" />
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="col-md-1">
+                <label for="login-username"><i class="icon-user"></i> <b>Başlık:</b></label>
+            </div>
+            <div class="col-md-11">
+                <input class="form-control" id="HaberBaslik" name="HaberBaslik" value="@ViewData["News_Title"].ToString()" type="text">
+            </div>
+        </div>
+
+        &nbsp;
+        &nbsp;
+
+        <div class="col-md-12">
+
+            <div class="col-md-1">
+                <label>Etiket:</label>
+            </div>
+
+            <div class="col-md-10">
+                <select multiple style="width:100%" class="select2" id="etiketslc" name="etiketslc">
+
+                    @foreach (var item in ViewBag.etiket)
+                    {
+                        <option selected="selected" value="@item.EtiketAdi">@item.Tag</option>
+
+                    }
+
+
+
+                </select>
+
+
+
+            </div>
+            <div class="col-sm-1">
+                <button class="btn btn-block btn-success " data-toggle="modal" data-target="#newetiketekle" type="button">+</button>
+            </div>
+        </div>
+        &nbsp;
+        &nbsp;
+       
+        <div class="col-md-12">
+            <div class="col-md-1">
+                <label for="login-username"><i class="icon-user"></i> <b>Haber İçerik Alanı:</b></label>
+            </div>
+            <div class="col-md-11">
+                <textarea id="haberaciklama" name="haberaciklama">@ViewData["News_Description"].ToString()</textarea>
+            </div>
+        </div>
+        &nbsp;
+        &nbsp;
+           
+            <div class="col-md-12">
+                <center><button type="button" onclick="haberguncelle()" class="btn btn-success">Haber Güncelle</button>   <button class="btn" onclick="    geri()">Geri</button></center>
+            </div>
+        </div>
+        
+        
+    
+
+
+<script type="text/javascript">CKEDITOR.replace("haberaciklama") </script>
+
+
+
+
+<div class="modal fade" id="newetiketekle" tabindex="-1" role="dialog" aria-labelledby="newarac" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" style="text-transform:none;">Yeni Etiket Ekleme Formu</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form class="smart-form client-form">
+
+
+
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="login-username"><i class="icon-user"></i> <b>Etiket Başlık</b></label>
+                            <input class="form-control" id="EtiketAdi" name="EtiketAdi" type="text">
+                        </div>
+
+
+
+                    </fieldset>
+                    <footer>
+                        <button type="button" class="btn" onclick="etiketekle()">
+                            Ekle
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            Cancel
+                        </button>
+
+                    </footer>
+
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<center><h2>Haber İçin Yüklenmiş Haber Fotoğrafları</h2></center>
+<div class="container">
+
+
+    <!--Haber Fotoğrafları -->
+    <h3>Haber Resmi</h3>
+
+    <div class="service-wrapper">
+
+
+        @using (Html.BeginForm("PostresimEkle", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+            @Html.LabelFor(m => m.resim)
+            @Html.TextBoxFor(m => m.resim, new { type = "file" })
+            @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+            <input type="submit" class="btn btn-primary" value="Resim Ekle" />
+
+    }
+        @if (ViewData["PostFotoFile"] == null || ViewData["PostFotoFile"] == "")
+    {
+
+    }
+    else
+    {
+            <img class="img-responsive center-block" style="height:auto;width:50%" src="@ViewData["DefaultHaber"]">
+
+    }
+
+
+
+    </div>
+
+    <center><p>Resim boyut kısıtmalası yoktur.</p></center>
+
+  
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div>
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th></th>
+                                    <th></th>
+
+
+                                    <th><center>Foto İçerik </center> </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                //int i = 0;
+                                foreach (var item in ViewBag.DataHaberResim)
+                                {
+
+                                    if (item.Default_Haber_Foto == true)
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="haberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' disabled="disabled">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>
+
+                                        </tr>
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="haberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="haberdefaultresimyap(@item.FotoID)">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>
+                                        </tr>
+                                    }
+
+
+                                    //i = i + 1;
+
+
+
+
+
+
+
+                                }
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Sidebar Haber Fotoğrafları -->
+    <h3>Sidebar Haber Resmi</h3>
+
+    <div class="service-wrapper">
+
+
+        @using (Html.BeginForm("SidebarNewsFoto", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+            @Html.LabelFor(m => m.resim)
+            @Html.TextBoxFor(m => m.resim, new { type = "file" })
+            @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+            <input type="submit" class="btn btn-primary" value="Sidebar Resim Ekle" />
+
+    }
+        @if (ViewData["PostFotoFile"] == null || ViewData["PostFotoFile"] == "")
+    {
+
+    }
+    else
+    {
+            <img class="img-responsive center-block" style="height:auto;width:50%" src="@ViewData["DefaultHaber"]">
+
+    }
+
+
+
+    </div>
+
+    <center><p>Resim boyutu 64*64 olmalıdır.</p></center>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div>
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th></th>
+                                    <th></th>
+
+
+                                    <th><center>Foto İçerik </center> </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                //int i = 0;
+                                foreach (var item in ViewBag.DataSidebarHaberResim)
+                                {
+
+                                    if (item.Default_Haber_Foto == true)
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="sidebarhaberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' disabled="disabled">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>
+
+                                        </tr>
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="sidebarhaberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="sidebarhaberdefaultresimyap(@item.FotoID)">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>>
+                                        </tr>
+                                    }
+
+
+                                    //i = i + 1;
+
+
+
+
+
+
+
+                                }
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3>Diğer Haber Resmi</h3>
+
+    <div class="service-wrapper">
+
+
+        @using (Html.BeginForm("OtherNewsFoto", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+            @Html.LabelFor(m => m.resim)
+            @Html.TextBoxFor(m => m.resim, new { type = "file" })
+            @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+            <input type="submit" class="btn btn-primary" value="Diğer Resim Ekle (Rastgele İçin)" />
+
+    }
+        @if (ViewData["PostFotoFile"] == null || ViewData["PostFotoFile"] == "")
+    {
+
+    }
+    else
+    {
+            <img class="img-responsive center-block" style="height:auto;width:50%" src="@ViewData["DefaultHaber"]">
+
+    }
+
+
+
+    </div>
+
+
+    <center><p>Resim boyutu 348*196 olmalıdır.</p></center>
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div>
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th></th>
+                                    <th></th>
+
+
+                                    <th><center>Foto İçerik </center> </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                //int i = 0;
+                                foreach (var item in ViewBag.DataOtherHaberResim)
+                                {
+
+                                    if (item.Default_Haber_Foto == true)
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="otherhaberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' disabled="disabled">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>
+
+                                        </tr>
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="otherhaberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td class="col-md-2"><center> <button type='button' class='btn  btn-info' onclick="otherhaberdefaultresimyap(@item.FotoID)">Default Yap</button></center></td>
+                                            <td class="col-md-8"><center> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></center></td>
+                                        </tr>
+                                    }
+
+
+                                    //i = i + 1;
+
+
+
+
+
+
+
+                                }
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+<script>
+   
+    //$("#etiketslc").select2();
+
+    //$(document).ready(function() { 
+    //    $("#etiketslc").select2();
+    //});
+
+
+    $(document).ready(function () {
+
+     
+        gelenNewsID = $("#ID").val();
+
+
+        var verigonder = {
+
+            gelenNewsID: $("#ID").val()
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/CekFormEtiket",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            $("#etiketslc").fadeOut().empty().html(data).fadeIn();
+
+            pageSetUp("etiketslc");
+
+
+
+        });
+    });
+    
+        var pageSetUp = function (ad) {
+            var $this = $("#" + ad);
+            var width = $this.attr('data-select-width') || '100%';
+       
+            $this.select2({
+                allowClear: true,
+                width: width
+            });
+        }
+
+
+    
+    
+
+
+
+    var haberguncelle = function () {
+
+
+        var etiketler = "";
+
+
+        $("#etiketslc option:selected").each(function (i, l) {
+
+            if (i == 0) {
+                etiketler += $(this).val();
+            }
+            else {
+                etiketler += "," + $(this).val();
+            }
+
+        });
+
+
+        var ID = $("#ID").val();
+
+        var News_Title = $("#HaberBaslik").val();
+
+        var PostEtiketi=etiketler;
+
+        var News_Description = CKEDITOR.instances.haberaciklama.getData();
+
+        var verigonder =
+            {
+                ID: ID,
+
+                News_Title: News_Title,
+
+                PostEtiketi:PostEtiketi,
+
+                News_Description: News_Description,
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Account/haberguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+            if (data == "etiketbos") {
+                alert("Lütfen Etiket alanlanını boş bırakmayınız !");
+
+            }
+            
+
+
+        });
+
+
+    }
+
+
+
+    var haberdefaultresimyap = function (idfoto) {
+
+        var verigonder = {
+
+            ID: idfoto,
+
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/Account/Urundefaultfoto",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                $("#" + idfoto).hide();
+                location.reload();
+
+
+            }
+
+
+        });
+
+    }
+
+
+    var haberresimsil = function (idfoto) {
+
+        var verigonder =
+        {
+            ID: idfoto,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/HaberFotoSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idfoto).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+    
+    var sidebarhaberresimsil = function (idsidebarfoto) {
+
+        var verigonder =
+        {
+            ID: idsidebarfoto,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/SidebarHaberFotoSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idsidebarfoto).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+
+    var otherhaberresimsil = function (idotherfoto) {
+
+        var verigonder =
+        {
+            ID: idotherfoto,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/OtherHaberFotoSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idotherfoto).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+    
+    var sidebarhaberdefaultresimyap = function (idsidebarfoto) {
+
+        var verigonder = {
+
+            ID: idsidebarfoto,
+
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/Account/SidebarHaberResimDefault",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                $("#" + idsidebarfoto).hide();
+                location.reload();
+
+
+            }
+
+
+        });
+
+    }
+
+    var otherhaberdefaultresimyap = function (idotherfoto) {
+
+        var verigonder = {
+
+            ID: idotherfoto,
+
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/Account/OtherHaberResimDefault",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                $("#" + idotherfoto).hide();
+                location.reload();
+
+
+            }
+
+
+        });
+
+    }
+
+
+
+
+    var etiketekle = function () {
+        var verigonder =
+            {
+
+                TagName: $("#EtiketAdi").val()
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Account/Etiketekle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                alert("Kayıt başarılı");
+                $("#newetiketekle").modal("hide");
+                $("#EtiketAdi").val("");
+
+                location.reload();
+
+
+            }
+            if (data == "boskayit") {
+                alert("Lütfen başlık alanlarını boş bırakmayınız !");
+
+            }
+            if (data == "aynikayit") {
+                alert("Daha önce eklediğiniz kaydı tekrar ekleyemezsiniz!");
+
+            }
+
+        });
+    }
+
+
+    var geri = function () {
+
+        window.history.back();
+
+    }
+
+
+</script>
+
+
+

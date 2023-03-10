@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "KategoriListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<h2>KategoriListele</h2>
+
+
+
+<div class="basic-login">
+    <form role="form">
+        <div>
+
+            <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                <thead>
+                    <tr align="center">
+
+
+
+                        <th></th>
+                        <th></th>
+                        <th><center>ID</center></th>
+                        
+
+                        <th><center>Kategori Başlık </center> </th>
+                      
+
+
+
+                    </tr>
+                </thead>
+                <tbody id="table">
+
+                    @{
+                        int i = 0;
+                        foreach (var item in ViewBag.kategorilistele)
+                        {
+                            i = i + 1;
+                            <tr>
+                                <td>@i</td>
+                                <td><center><button type='button' class='btn btn-danger' onclick="kategorikaldir(@item.ID)">Kaldır</button></center></td>
+                                @*<td><center> <button type='button' class='btn btn-block btn-success' onclick="kategoridetay(@item.ID)">Güncelle</button></center></td>*@
+                                <td><center><input type="text" value="@item.ID"readonly /></center></td>
+                             
+                                <td>
+                                   
+                                  
+                                    <center><input type="text" name="kategoriguncelle" id="kategoriguncelle" value="@Html.Raw(item.Category_Name)"  onchange="katguncelle(this.value,@item.ID)" /></center>
+
+                                </td>
+
+                              
+                              
+
+
+
+                            </tr>
+
+                        }
+                    }
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </form>
+</div>
+<script>
+    var  katguncelle = function(val,ID) {
+      
+
+        var verigonder =
+          {
+             
+              ID: ID,
+              Category_Name: val
+
+          
+
+          }
+        $.ajax({
+            type: "post",
+            url: "/Account/kategoriguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("The input value has changed. The new value is: " + val);
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+        });
+    }
+
+
+
+ 
+</script>

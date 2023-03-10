@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AnimexEntertainmentLogin.cshtml";
+}
+
+    
+    
+
+    <div class="col-sm-5 form-box wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="form-top">
+            <div class="form-top-left">
+                <center>
+                    <h3>Giriş Yap</h3>
+                    <p>Anime ile dolu yaşama Bir adım daha...</p>
+                </center>
+            </div>
+            <div class="form-top-right">
+                <span aria-hidden="true" class="typcn typcn-mail"></span>
+            </div>
+        </div>
+        <div class="form-bottom contact-form">
+            <form role="form" action="" method="post">
+                <div class="form-group">
+                    <label class="sr-only" for="contact-email">Kullanıcı Adı</label>
+                    <input type="text" name="isim" id="isim" placeholder="Kullanıcı Adı..." class="contact-email form-control">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="contact-subject">Şifre</label>
+                    <input type="password" id="sifre" name="sifre" placeholder="Şifre..." class="contact-subject form-control">
+                </div>
+                <div>
+                    <center>
+                        <ul>
+
+                            <li style="margin: 0; padding: 0; list-style-type: none;"><a>Şifremi Unuttum !</a></li>
+                            <li style="margin: 0; padding: 0; list-style-type: none;"><a>Kayıt Ol</a></li>
+
+
+                        </ul>
+                    </center>
+                </div>
+                <button type="button" class="btn btn-success btn-lg" onclick="uyegir()" style="width:100%;">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+
+
+    var uyegir = function () {
+
+        var username = $("#isim").val();
+
+        var password = $("#sifre").val();
+
+        var verigonder2 = { username: username, password: password };
+
+        $.ajax({
+            type: "post",
+            url: "/Account/girisyap",
+            data: verigonder2,
+            dataType: "json",
+            error: function (err) {
+
+                alert("Lütfen Tüm alanları eksiksiz doldurunuz");
+            }
+
+        }).done(function (response) {
+            if (response == "ok") {
+                location.href = "/Home/Index";
+            }
+            else {
+
+                //location.href = "Index";
+            }
+        });
+
+    }
+
+</script>

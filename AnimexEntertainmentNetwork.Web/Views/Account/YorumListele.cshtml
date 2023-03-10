@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "YorumListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<center><h2>Yorumlar Listeleme Ekranı</h2></center>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th colspan="2"></th>
+
+                                    <th><center>Kategori ID </center> </th>
+                                    <th><center>Kategori Adı </center> </th>
+                                    <th><center>Haber ID </center> </th>
+                                    <th><center>Haber Başlık</center> </th>
+                                    <th><center>Kullanıcı Adı</center> </th>
+                                    <th><center>Email</center> </th>
+                                    <th><center>Yorum İçerik </center> </th>
+                                    <th><center>Yorum Tarihi</center> </th>
+                                    <th><center>Statü</center> </th>
+                                    <th><center>Kullanıcı İP'si </center> </th>
+                                    <th><center>Browser </center> </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    int i = 0;
+                                    foreach (var item in ViewBag.yorumlistele)
+                                    {
+                                        i = i + 1;
+
+                                        if (item.Comment_Report >= 8 && item.Comment_Report <= 10)
+                                        {
+                                            <tr style="background-color:red;" id="@item.CommentID">
+                                                <td>@i</td>
+
+                                                <td><center><button type='button' class='btn btn-danger' onclick="YORUMKALDIR(@item.CommentID)">Kaldır</button></center></td>
+                                                <td><center><button type='button' class='btn btn-success' onclick="yorumonayla(@item.CommentID)">Kaldır</button></center></td>
+                                                <td><center><button type='button' class='btn btn-primary' onclick="yorumdetay(@item.CommentID)">Kaldır</button></center></td>
+
+                                                <td><center>@item.CategoryID</center></td>
+                                                <td><center>@item.Category_Name</center></td>
+                                                <td><center>@item.NewsID</center></td>
+                                                <td><center>@item.News_Title</center></td>
+                                                <td><center>@item.User_Name</center></td>
+                                                <td><center>@item.User_Email</center></td>
+                                                <td><center> @item.User_Comment</center></td>
+                                                <td><center> @item.Comment_Date</center></td>
+                                                <td><center> @item.Status</center></td>
+                                                <td><center>@item.Comment_IP</center></td>
+                                                <td><center>@item.Browser</center></td>
+                                            </tr>
+                                        }
+
+
+                                        if (item.Comment_Report <= 5)
+                                        {
+                                            <tr style="background-color:green;" id="@item.CommentID">
+                                            <td>@i</td>
+
+                                            <td><center><button type='button' class='btn' onclick="YORUMKALDIR(@item.CommentID)">Kaldır</button></center></td>
+
+                                            <td><center>@item.CategoryID</center></td>
+                                            <td><center>@item.Category_Name</center></td>
+                                            <td><center>@item.NewsID</center></td>
+                                            <td><center>@item.News_Title</center></td>
+                                            <td><center>@item.User_Name</center></td>
+                                            <td><center>@item.User_Email</center></td>
+                                            <td><center> @item.User_Comment</center></td>
+                                            <td><center> @item.Comment_Date</center></td>
+                                            <td><center> @item.Status</center></td>
+                                            <td><center>@item.Comment_IP</center></td>
+                                            <td><center>@item.Browser</center></td>
+                                        </tr>
+                                        }
+                                        if (item.Comment_Report > 5 && item.Comment_Report <= 7)
+                                        {
+                                            <tr style="background-color:orange;" id="@item.CommentID">
+                                            <td>@i</td>
+
+                                            <td><center><button type='button' class='btn' onclick="YORUMKALDIR(@item.CommentID)">Kaldır</button></center></td>
+
+                                            <td><center>@item.CategoryID</center></td>
+                                            <td><center>@item.Category_Name</center></td>
+                                            <td><center>@item.NewsID</center></td>
+                                            <td><center>@item.News_Title</center></td>
+                                            <td><center>@item.User_Name</center></td>
+                                            <td><center>@item.User_Email</center></td>
+                                            <td><center> @item.User_Comment</center></td>
+                                            <td><center> @item.Comment_Date</center></td>
+                                            <td><center> @item.Status</center></td>
+                                            <td><center>@item.Comment_IP</center></td>
+                                            <td><center>@item.Browser</center></td>
+                                        </tr>
+                                        }
+                                        
+                                        
+                                        
+                                        
+                                        
+
+
+
+                                    }
+                                }
+
+
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var YORUMKALDIR = function (idyorum) {
+        var verigonder =
+    {
+        ID: idyorum,
+
+    }
+        $.ajax({
+            type: "post",
+            url: "/Account/YorumSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+
+
+
+
+</script>
+
+

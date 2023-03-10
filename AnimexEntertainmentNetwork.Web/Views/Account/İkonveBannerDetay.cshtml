@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "İkonveBannerDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+
+
+<center><h2>İkon ve Banner İçeriği Güncelleme Ekranı</h2></center>
+
+
+<input type="hidden" value="@ViewData["iconbannerID"].ToString()" id="ID" name="ID" />
+
+<div class="form-group">
+    <div class="col-md-12">
+        <div class="col-md-1">
+            <label for="login-username"><i class="icon-user"></i> <b>İçerik Alanı:</b></label>
+        </div>
+        <div class="col-md-11">
+            <textarea id="ikonvebannerAciklama" name="ikonvebannerAciklama">@ViewData["iconbannerDetay"].ToString()</textarea>
+        </div>
+    </div>
+    &nbsp;
+    &nbsp;
+
+    <div class="col-md-12">
+        <center><button type="button" onclick="ikonvebannerguncelle()" class="btn btn-success">İkon ve Banner Güncelle</button>   <button class="btn" onclick="    geri()">Geri</button></center>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">CKEDITOR.replace("ikonvebannerAciklama") </script>
+
+<script>
+    var ikonvebannerguncelle = function () {
+
+
+
+
+
+        var iconbannerID = $("#ID").val();
+
+        var iconbannerdetay = CKEDITOR.instances.ikonvebannerAciklama.getData();
+
+        var verigonder =
+            {
+                iconbannerID: iconbannerID,
+
+                iconbannerdetay: iconbannerdetay,
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Account/ikonvebannerguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+
+        });
+
+
+    }
+
+</script>

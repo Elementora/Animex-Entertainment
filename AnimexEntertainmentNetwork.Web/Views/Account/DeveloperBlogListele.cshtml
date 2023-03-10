@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "DeveloperBlogListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+<center><h2>Developer Blog Listeleme Ve Ekleme Ekranı</h2> </center>
+
+
+<div class="col-md-12">
+    <div class="form-group">
+        <div>
+
+
+            <div class="col-md-1">
+                <label for="login-username"><i class="icon-user"></i> <b>İçerik Yazı Alanı:</b></label>
+            </div>
+            <div class="col-md-11">
+                <textarea id="blogciklama" name="blogciklama"></textarea>
+            </div>
+
+        </div>
+
+        <center><button type="button" onclick="blogekle()" class="btn btn-success">Blog Ekle</button>   <button class="btn" onclick="    geri()">Geri</button></center>
+    </div>
+</div>
+
+<script type="text/javascript">CKEDITOR.replace("blogciklama") </script>
+
+
+
+<div class="">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+                                    <th></th>
+                                    <th></th>
+                                   <th></th>
+                                    <th><center>Dev Blog İçerik </center> </th>
+                                    <th><center>Yazan Kullanıcı</center></th>
+                                    <th><center>Güncelleyen Kullanıcı</center></th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody id="table">
+
+                                @{
+                                    int i = 0;
+                                    foreach (var item in ViewBag.bloglistele)
+                                    {
+                                        i = i + 1;
+                                        <tr>
+                                            <td>@i</td>
+                                            <td><center><button type='button' class='btn btn-danger' onclick="blogkaldir(@item.DevBlogID)">Kaldır</button></center></td>
+                                            <td><center> <button type='button' class='btn btn-block btn-success' onclick="blogdetay(@item.DevBlogID)">Güncelle</button></center></td>
+
+                                            
+
+
+                                            <td>
+                                                <center> @Html.Raw(item.DevBlog_Description)</center>
+
+
+                                            </td>
+
+
+                                            <td>
+                                                <center> @Html.Raw(item.Dev_Create_User_Name)</center>
+
+
+                                            </td>
+
+                                            
+
+                                            <td>
+                                                <center> @Html.Raw(item.Dev_Blog_Update_User)</center>
+
+
+                                            </td>
+
+
+
+
+                                        </tr>
+
+                                    }
+                                }
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+
+    var blogekle = function () {
+                    var verigonder = {
+
+                        
+                        DevBlog_Description: CKEDITOR.instances.blogciklama.getData(),
+
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/DeveloperBlog_ekle",
+                        data: verigonder,
+                        dataType: "json",
+                    }).done(function (data) {
+                        if (data == "ok") {
+                            alert("Kayıt Başarılı");
+                            location.reload();
+                        }
+                        if (data == "BoşKayıt") {
+                            alert("Lütfen alanları boş bırakmayınız !");
+                        }
+
+                        if (data == "AynıKayıt") {
+                            alert("Eklenmiş kaydı tekrar ekleyemezsiniz!");
+
+                        }
+                    })
+                }
+
+                var blogdetay = function (idblog) {
+                    location.href = "/Account/DeveloperBlogDetay?ID=" + idblog;
+                }
+
+
+
+
+    
+                var blogkaldir = function (iddevblog) {
+
+                    var verigonder =
+                    {
+                        ID: iddevblog,
+
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/DeveloperBlog_sil",
+                        data: verigonder,
+                        dataType: "json",
+
+                    }).done(function (data) {
+                        if (data == "ok") {
+                            $("#" + iddevblog).hide();
+                            location.reload();
+                        }
+
+
+                    });
+
+
+                }
+
+    </script>

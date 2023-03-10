@@ -1,0 +1,1212 @@
+﻿
+@{
+    
+    ViewBag.Title = "HaberDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentHome.cshtml";
+    
+}
+        
+
+
+
+<div class="container" style="margin-top:90px;">
+
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <!--Haber Alanı-->
+            <input type="hidden" value="@ViewData["ID"].ToString()" id="ID" name="ID" />
+            <div>
+                <div class="panel panel-default">
+
+
+
+                    <div class="panel-body">
+
+
+
+
+                        <h3 class="news_title_detail"> @ViewData["PostBaslik"].ToString()</h3>
+                    <br/>
+
+
+                       
+                        <p style="font-size: 1.135em; line-height: 1.75em; font-family: 'PT Sans'; ">
+
+                            @Html.Raw(@ViewData["PostIcerik"].ToString())
+
+
+                        </p>
+
+
+
+                        <div id="ns_related_titlearea"><p id="ns_related_title">Diğer Haberler</p></div>
+                    @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.RandomHaber_Get().Take(2))
+                    {
+                               <div class="col-lg-6 col-md-6 col-xs-6 ">
+
+                                <div class="panel-body">
+
+                                    <div class="news_related_pic hover">
+                                        <div class="r_pic hover">
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.OtherFoto_TB_get(item.ID))
+                                {
+                                    <img src="@item2.FotoURL" width="100%" alt="@item2.FotoName" />
+                                }
+                                }
+                                            <a onclick="haberoku(@item.ID)"></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="news_related_body">
+
+
+
+                                    @if (item.CategoryID == 1)
+                                    {
+                                        <p class="news_title anime"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+
+                                    @if (item.CategoryID == 2)
+                                    {
+                                        <p class="news_title manga"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 3)
+                                    {
+                                        <p class="news_title oyun"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 4)
+                                    {
+                                        <p class="news_title cosplay"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 5)
+                                    {
+                                        <p class="news_title etkinlik"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 6)
+                                    {
+                                        <p class="news_title sanat"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 7)
+                                    {
+                                        <p class="news_title ozel"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 8)
+                                    {
+                                        <p class="news_title figur"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 9)
+                                    {
+                                        <p class="news_title yemek"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 10)
+                                    {
+                                        <p class="news_title film"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 11)
+                                    {
+                                        <p class="news_title vocaloid"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 12)
+                                    {
+                                        <p class="news_title urun"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 13)
+                                    {
+                                        <p class="news_title muzik"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+
+
+
+                                        <div class="news_related_body_meta"><span class="news_related_category nnb_special"><a href="#">@item.Category_Name</a></span><span>@string.Format("{0:MM/dd/yyyy}", @item.Date)</span></div>
+                                        
+                                    </div>
+                                </div>
+
+
+                            </div>
+                    }}
+                        
+             
+                        @*@foreach (var item in ViewBag.Data)
+                        {
+
+                            <li class="col-md-3"><a href="#">@item</a></li>
+
+                        }*@
+
+                    </div><!-- /.box-body -->
+                    <div class="daisuki_area">
+
+                        <div class="i" style="width:90px; height:50px;">
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div><!-- /.box -->
+
+
+
+                <!--Yorum Box-->
+
+                <div class="panel panel-default">
+                    <!--Yorum Alanı Yeni-->
+
+                    <div class="" style=" box-sizing: border-box;">
+                        <div class="panel-body">
+                            <span id="ns_related_title" style=" float:right;"><strong>@User.Identity.Name</strong></span>
+                            <div id="ns_related_titlearea">
+                                <p id="ns_related_title">Yorumlar</p>
+                            </div>
+                        </div>
+                        @if (User.Identity.Name == "" || User.Identity.Name == null)
+                        {
+                            <center> <h6>Lütfen Giriş Yapınız.</h6></center>
+
+                        }
+                        else
+                        {
+
+                            <div class="panel-body">
+
+                                <div class="media-left">
+                                    <img style="width:48px; height:48px; border-radius:5px;" data-role="user-avatar" data-user="155581393" src="//a.disquscdn.com/uploads/users/15558/1393/avatar92.jpg?1430295197" alt="Avatar">
+                                </div>
+
+
+                                <div class="media-body" style="padding-bottom:20px;">
+
+
+                                    <div class="widget-area no-padding blank">
+                                        <div class="status-upload">
+                                            <form>
+                                                <textarea id="yorum" name="yorum" placeholder="Tartışmaya Katıl"></textarea>
+                                                <ul>
+                                                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Audio"><i class="fa fa-music fafaicon"></i></a></li>
+                                                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera fafaicon"></i></a></li>
+                                                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record"><i class="fa fa-microphone fafaicon"></i></a></li>
+                                                    <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o fafaicon"></i></a></li>
+                                                </ul>
+                                                <button onclick="YorumGonder()" type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Paylaş</button>
+                                            </form>
+                                        </div><!-- Status Upload  -->
+                                    </div><!-- Widget Area -->
+
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+
+
+                    <!--Yorum Alanı Yeni-->
+
+                    <div class="comments-container">
+                        <ul id="comments-list" class="comments-list">
+
+                           
+                        @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.YorumTB_get(ViewData["ID"].ToString()).ToList())
+                        {
+
+                            
+                               
+                        if (User.Identity.Name == "" || User.Identity.Name == null)
+                           {
+                            
+                            
+                            <li>
+                              <div class="comment-main-level">
+                                        <!-- Avatar -->
+                                        <div class="comment-avatar"><img src="@item.User_IMG" title="@item.User_Name"></div>
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name by-author"><a href="#">@item.User_Name</a></h6>
+                                                <span>@string.Format("{0:MM/dd/yyyy}", @item.Comment_Date)</span>
+                                                <span style="color:green; float:right; ">+@item.Comment_Like</span>
+
+                                                
+                                            </div>
+                                                <div class="comment-content">
+                                                  @item.User_Comment 
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <!-- Respuestas de los comentarios -->
+                                    </li>
+
+                            
+                            
+                               
+                            }
+                        else
+                    {
+    
+
+                         <li>
+                              <div class="comment-main-level">
+                                        <!-- Avatar -->
+                                        <div class="comment-avatar"><img src="@item.User_IMG" title="@item.User_Name"></div>
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name by-author"><a href="#">@item.User_Name</a></h6>
+                                                <span>@string.Format("{0:MM/dd/yyyy}",@item.Comment_Date)</span>
+                                                @*<i class="fa fa-reply" title="Yanıtla"></i>*@
+                                                <i class="fa fa-fw fa-warning" onclick="yorumbildir(this.value,@item.CommentID)" title="Raporla"></i>
+                                                <i class="fa fa-heart" onclick="yorumbegen(this.value,@item.CommentID)" title="Beğen"></i>
+                                                <span style="color:green; float:right;">+@item.Comment_Like</span>
+                                            </div>
+                                                <div class="comment-content">
+                                                  @item.User_Comment 
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        <!-- Respuestas de los comentarios -->
+                                    </li>
+                        
+                        
+                             }
+                               
+                                }
+                                }
+     
+                        </ul>
+                    </div>                    
+                    
+
+                    
+                <!--Yorum Box-->
+
+           </div>
+            <!--Haber Alanı Bitiş-->
+
+
+        </div>
+
+      
+
+        <div class="col-lg-3 col-md-3 col-sm-3">
+
+            <!--Arama Yap-->
+
+
+
+            <div class="panel panel-default input-group">
+                <input type="text" class="form-control" placeholder="Anime,Naruto,Miku...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Git!</button>
+                </span>
+            </div><!-- /input-group -->
+            <!--Arama Yap-->
+            <!--Resim List Başlangıç-->
+
+            <div class=" p-left " style="box-sizing: border-box">
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarBannerFoto_TB_get().ToList())
+                {
+
+                    if (item.Statu == 1)
+                    {
+
+
+                        <div class="panel panel-default">
+                            <a href="@item.Link" target="_blank"><img class="genislik" src="@item.FotoURL" /></a>
+                        </div>
+
+                    }
+
+                }
+
+                }
+
+
+            </div>
+
+            <!--Resim List Son-->
+
+
+
+            <!--Reklam Başlangı-->
+
+            <div class="panel panel-default pdngzero " style="box-sizing: border-box">
+
+
+                <div>
+                    <p class=" nsa_title1">Sponsor Reklam</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+                <div>
+                   
+                </div>
+            </div>
+
+            <!--Kategori Haberleri-->
+
+
+            <div class="pdngzero">
+                <div class="widget media">
+                    <div class="widget widget-games">
+                        <div class="title">Kategori Haberleri</div>
+                        <ul>
+                            @{
+                                int i = 0;
+                                foreach (var item in ViewBag.kategoricek)
+                                {
+                                    i = i + 1;
+
+                                    if (item.Statu == 1)
+                                    {
+                                        {
+                                            foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.BlogFoto_TB_get(item.ID))
+                                            {
+                                                <li style="background-image: url(@item2.FotoURL);">
+                                                    <a onclick="haberoku(@item.ID)" class="overlay">
+                                                        <div class="media-left">
+                                                            <span class="number">@i</span>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <div class="game-meta">
+                                                                <h6 class="game-title">@item.News_Title</h6>
+                                                                <span>@item.News_Create_Date</span>
+                                                            </div>
+                                                        </div>
+
+                                                    </a>
+                                                </li>
+                                            }
+
+                                        }
+
+                                    }
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--Kategori Haberleri-->
+
+
+            <!--Reklam Son-->
+            <!--En Son Kategori Haberleri-->
+
+
+
+            <div class="panel panel-default pdngzero" style="box-sizing: border-box">
+
+
+                <div>
+                    <p class=" nsa_title1">En Son Kategori Haberleri</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Animekat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+
+                        <div class="media" style="margin-top: 0px !important;">
+                            <p class="aen_anime">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+                                @if (item.CategoryID == 1)
+                                {
+
+
+                                    <h4 class="media-heading anime"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Mangakat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_manga">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 2)
+                                {
+
+
+                                    <h4 class="media-heading manga"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Oyunkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_game">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+
+                                @if (item.CategoryID == 3)
+                                {
+
+
+                                    <h4 class="media-heading oyun"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Cosplaykat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_cosplay">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+                                @if (item.CategoryID == 4)
+                                {
+
+
+                                    <h4 class="media-heading cosplay"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Etkinlikkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_event">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+
+                                @if (item.CategoryID == 5)
+                                {
+
+
+                                    <h4 class="media-heading etkinlik"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Sanatkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_art">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 6)
+                                {
+
+
+                                    <h4 class="media-heading sanat"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Ozelkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_special">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 7)
+                                {
+
+
+                                    <h4 class="media-heading ozel"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Figurkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_figure">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 8)
+                                {
+
+
+                                    <h4 class="media-heading figur"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Yemekkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_food">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 9)
+                                {
+
+
+                                    <h4 class="media-heading yemek"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Filmkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_movie">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 10)
+                                {
+
+
+                                    <h4 class="media-heading film"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Vocaloidkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_vocaloid">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 11)
+                                {
+
+
+                                    <h4 class="media-heading vocaloid"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Urunkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_product">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 12)
+                                {
+
+
+                                    <h4 class="media-heading urun"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Muzikkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_music">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px; margin-bottom:10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 13)
+                                {
+
+
+                                    <h4 class="media-heading muzik"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+            </div>
+
+            <!--En Son Kategori Haberleri-->
+            <!--Haftanın Popüler Haberleri-->
+
+
+
+
+           
+
+
+
+            <!--Haftanın Popüler Haberleri-->
+            <!--Reklam Başlangı-->
+
+            <!--Reklam Başlangı-->
+
+            <div class="panel panel-default pdngzero " style="box-sizing: border-box">
+
+
+                <div>
+                    <p class=" nsa_title1">Sponsor Reklam</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+                <div>
+
+                </div>
+            </div>
+
+
+
+
+            <!--Reklam Son-->
+
+
+           
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+ 
+
+
+<script>
+    //$(document).ready(function () {
+    //    $("#yorum").on("focus", function (e) {
+    //        $('#b1,#b2').show();
+    //    });
+    //});
+
+    //$(document).ready(function () {
+    //    $("#b2").on("focus", function (e) {
+    //        $('#b1,#b2').hide();
+    //        $('#yorum').val('');
+    //    });
+        
+
+    //});
+   
+    $(document).ready(function(){
+
+    
+        $("[data-toggle=tooltip]").tooltip();
+    });
+
+    var YorumGonder = function () {
+        if ($("#yorum").val() == "" || $("#yorum").val() == null) {
+            alert("Lütfen tüm alanları doldurunuz");
+        }
+        else {
+            var verigonder =
+            {
+                newsid: $("#ID").val(),
+                kullaniciadi: $("@User.Identity.Name").val(),
+                yorum: $("#yorum").val()
+
+            }
+            $.ajax({
+                type: "post",
+                url: "/Account/YORUMEKLE",
+                data: verigonder,
+                dataType: "json",
+
+            }).done(function (data) {
+
+
+                if (data == "ok") {
+                    //alert("Kayıt başarılı");
+
+
+                    location.reload();
+
+                }
+
+
+
+            });
+        }
+    }
+
+
+    var yorumbildir = function (val,CommentID) {
+     
+        
+        var verigonder =
+            {
+                ID: CommentID,
+
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Home/YorumBildir",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("Yorum Bildirildi");
+               
+               
+               
+                location.reload();
+            }
+
+
+
+        });
+
+
+    }
+
+
+    var yorumbegen = function(val,CommentID){
+
+        var verigonder={
+
+            ID:CommentID,
+        }
+
+        $.ajax({
+            type:"post",
+            url:"/Home/YorumLike",
+            data:verigonder,
+            dataType:"Json",
+        }).done(function(data){
+            if (data =="ok") {
+                alert("Yorum Beğenildi");
+                location.reload();
+
+        
+            }
+        });
+    }
+
+
+
+    
+</script>
+
+
+
+
+

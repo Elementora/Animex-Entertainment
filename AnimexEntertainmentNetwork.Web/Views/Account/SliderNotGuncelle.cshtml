@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "SliderNotGuncelle";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<h2>SliderNotGuncelle</h2>
+
+<input type="hidden" value="@ViewData["ID"].ToString()" id="ID" name="ID" />
+
+
+<div class="form-group">
+    <label for="login-username"><i class="icon-user"></i> <b>Slider Yer Not</b></label>
+    <input class="form-control" id="yernot" name="yernot" type="text" value="@ViewData["SliderCategoryNote"].ToString()">
+
+
+    <button type="button" class="btn" onclick="NoteGuncelle()">
+        Not Güncelle
+    </button>
+
+</div>
+
+<script>
+
+    var NoteGuncelle = function () {
+
+
+
+
+
+        var ID = $("#ID").val();
+
+        var Yer_Notu = $("#yernot").val();
+
+        var verigonder =
+            {
+                ID: ID,
+
+                Yer_Notu: Yer_Notu,
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Account/SliderNotGuncelleFonsksiyon",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+
+        });
+
+
+    }
+
+
+
+
+</script>

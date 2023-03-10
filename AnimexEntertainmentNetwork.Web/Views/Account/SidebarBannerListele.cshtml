@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "SidebarBannerListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+@model AnimexEntertainmentNetwork.Web.Models.RESIMEKLE
+<center><h2>Sidebar Banner Listele</h2></center>
+
+<div class="service-wrapper">
+
+
+    @using (Html.BeginForm("SidebarBannerFoto", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+        @Html.LabelFor(m => m.resim)
+        @Html.TextBoxFor(m => m.resim, new { type = "file" })
+        @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+        <input type="submit" class="btn btn-primary" value="Sidebar Resim Ekle" />
+
+    }
+    @if (ViewData["PostFotoFile"] == null || ViewData["PostFotoFile"] == "")
+    {
+
+    }
+    else
+    {
+        <img class="img-responsive center-block" style="height:auto;width:50%" src="@ViewData["DefaultHaber"]">
+
+    }
+
+
+
+</div>
+
+<div >
+
+    <div class="row">
+        
+           
+                <form role="form">
+                    <div>
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th></th>
+                                    <th></th>
+
+
+                                    <th><center>Foto İçerik </center> </th>
+                                    <th><center>Not </center> </th>
+                                    <th><center>Link </center> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                int i = 0;
+                                foreach (var item in ViewBag.DataSidebarBannerResim)
+                                {
+
+                                    if (item.Default_Foto == true && item.Statu==0)
+                                    {
+                                        <tr>
+                                            <td><center> <button type='button' class='btn  btn-info' onclick="sidebarbannerresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            @*<td><center> <button type='button' class='btn  btn-info' disabled="disabled">Default Yap</button></center></td>*@
+                                            <td class="col-sm-1"><center><button type='button' class='btn bg-maroon' onclick="anasayfayabannerstatu(@item.FotoID,1)">Anasayfaya Ekle</button></center></td>
+                                            <td> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></td>
+                                            <td><center><input type="text" name="fotonote" id="fotonote" value="@Html.Raw(item.FotoNote)" onchange="fotonoteguncelle(this.value,@item.FotoID)" /></center></td>
+                                            <td><center><input type="text" name="fotolink" id="fotolink" value="@Html.Raw(item.Link)" onchange="linkguncelle(this.value,@item.FotoID)" /></center></td>
+                                        </tr>
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td><center> <button type='button' class='btn  btn-info' onclick="sidebarbannerresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            @*<td><center> <button type='button' class='btn  btn-info' onclick="sidebarbannerdefaultresimyap(@item.FotoID)">Default Yap</button></center></td>*@
+                                            <td class="col-sm-1"><center><button type='button' class='btn bg-orange' onclick="anasayfayabannerstatu(@item.FotoID,0)">Anasayfayadan Kaldır</button></center></td>
+                                            <td><img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></td>
+                                            <td><center><input type="text" name="fotonote" id="fotonote" value="@Html.Raw(item.FotoNote)" onchange="fotonoteguncelle(this.value,@item.FotoID)" /></center></td>
+                                            <td><center><input type="text" name="fotolink" id="fotolink" value="@Html.Raw(item.Link)" onchange="linkguncelle(this.value,@item.FotoID)" /></center></td>
+                                        </tr>
+                                    }
+
+
+                                    i = i + 1;
+
+
+
+                                }
+                                }
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+          
+      
+    </div>
+
+</div>
+
+
+<script>
+
+
+    var anasayfayabannerstatu = function (FotoID, statu) {
+        var veri = {
+            FotoID: FotoID,
+            Statu: statu
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/BannerAnasayfaStatu",
+            data: veri,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+
+                location.reload();
+            }
+
+
+        });
+    }
+
+
+
+
+
+    var sidebarbannerresimsil = function (idsidebarfoto) {
+
+        var verigonder =
+        {
+            ID: idsidebarfoto,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/SidebarBannerFotoSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idsidebarfoto).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+
+    var  fotonoteguncelle = function(val,FotoID) {
+      
+
+        var verigonder =
+          {
+             
+              FotoID: FotoID,
+              fotonote: val
+
+          
+
+          }
+        $.ajax({
+            type: "post",
+            url: "/Account/sidebarfotonoteguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("The input value has changed. The new value is: " + val);
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+        });
+    }
+
+
+    
+    var  linkguncelle = function(val,FotoID) {
+      
+
+        var verigonder =
+          {
+             
+              FotoID: FotoID,
+              fotolink: val
+
+          
+
+          }
+        $.ajax({
+            type: "post",
+            url: "/Account/sidebarfotolinkguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("The input value has changed. The new value is: " + val);
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+        });
+    }
+
+
+</script>
+
+ 

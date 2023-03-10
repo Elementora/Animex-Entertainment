@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "SliderDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<center><h2>Slider Detay</h2></center>
+
+@model AnimexEntertainmentNetwork.Web.Models.RESIMEKLE
+
+
+
+<div class="service-wrapper">
+
+
+    @using (Html.BeginForm("SliderFotoEkle", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+        @Html.LabelFor(m => m.resim)
+        @Html.TextBoxFor(m => m.resim, new { type = "file" })
+        @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+        <input type="submit" class="btn btn-primary" value="Resim Ekle" />
+
+    }
+    @if (ViewData["PostFotoFile"] == null || ViewData["PostFotoFile"] == "")
+    {
+
+    }
+    else
+    {
+        <img class="img-responsive center-block" style="height:auto;width:50%" src="@ViewData["Default_Haber_Foto"]">
+
+    }
+
+
+
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="basic-login">
+            <form role="form">
+                <div>
+
+                    <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                        <thead>
+                            <tr align="center">
+
+
+
+                                <th></th>
+                                <th></th>
+
+
+                                <th><center>Foto İçerik </center> </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                                //int i = 0;
+                                foreach (var item in ViewBag.slider)
+                                {
+
+                                    if (item.Default_Haber_Foto == true)
+                                    {
+                                        <tr>
+                                            <td><center> <button type='button' class='btn  btn-info' onclick="haberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td><center> <button type='button' class='btn  btn-info' disabled="disabled">Default Yap</button></center></td>
+                                            <td> <img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></td>
+
+                                        </tr>
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td><center> <button type='button' class='btn  btn-info' onclick="haberresimsil(@item.FotoID)">Kaldır</button></center></td>
+                                            <td><center> <button type='button' class='btn  btn-info' onclick="haberdefaultresimyap(@item.FotoID)">Default Yap</button></center></td>
+                                            <td><img class="img-responsive center-block" style="height:auto;width:10%" src="@item.FotoURL"></td>
+                                        </tr>
+                                    }
+
+
+                                    //i = i + 1;
+
+
+
+
+
+
+
+                                }
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    var haberdefaultresimyap = function (idfoto) {
+
+        var verigonder = {
+
+            ID: idfoto,
+
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/Account/SliderFotoResimDefault",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                $("#" + idfoto).hide();
+                location.reload();
+
+
+            }
+
+
+        });
+
+    }
+
+
+    var haberresimsil = function (idfoto) {
+
+        var verigonder =
+        {
+            ID: idfoto,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/HaberFotoSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idfoto).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+</script>

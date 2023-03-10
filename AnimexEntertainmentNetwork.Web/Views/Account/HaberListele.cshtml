@@ -1,0 +1,369 @@
+﻿@{
+    ViewBag.Title = "HaberListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<center><h2>Haber Listeleme ve Ekleme Ekranı</h2></center>
+
+
+
+
+
+<div class="col-md-12">
+    <div class="form-group">
+        <div>
+
+
+            <div>
+                <div class="col-md-1">
+                    <label for="login-username"><i class="icon-user"></i> <b>Başlık:</b></label>
+                </div>
+                <div class="col-md-11">
+                    <input class="form-control" id="HaberBaslik" name="HaberBaslik" type="text">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-1"> <label>Kategori:</label></div>
+                <div class="col-md-10">
+                    <select class="form-control" id="selectkategori" name="selectkategori">
+                        <option>Seçiniz..</option>
+                        @foreach (var item in ViewBag.DATAKATEGORI)
+                        {
+
+                            <option value="@item.ID">@item.Category_Name</option>
+                        }
+
+
+                    </select>
+                </div>
+                <div class="col-sm-1">
+                    <button class="btn btn-block btn-success " data-toggle="modal" data-target="#newkategoriekle" type="button">+</button>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <label for="login-username"><i class="icon-user"></i> <b>Haber Yazı Alanı:</b></label>
+            </div>
+            <div class="col-md-11">
+                <textarea id="haberaciklama" name="haberaciklama"></textarea>
+            </div>
+
+        </div>
+
+        <center><button type="button" onclick="haberekle()" class="btn btn-success">Haber Ekle</button>   <button class="btn" onclick="    geri()">Geri</button></center>
+    </div>
+</div>
+
+<script type="text/javascript">CKEDITOR.replace("haberaciklama") </script>
+
+
+
+
+
+<!--Modal-->
+
+
+<div class="modal fade" id="newkategoriekle" tabindex="-1" role="dialog" aria-labelledby="newarac" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" style="text-transform:none;">Yeni Kategori Ekleme Formu</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form class="smart-form client-form">
+
+
+
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="login-username"><i class="icon-user"></i> <b>Kategori Başlık</b></label>
+                            <input class="form-control" id="KategoriBaslik" name="KategoriBaslik" type="text">
+                        </div>
+
+
+
+                    </fieldset>
+                    <footer>
+                        <button type="button" class="btn" onclick="KATEKLE()">
+                            Ekle
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            İptal
+                        </button>
+
+                    </footer>
+
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!--Modal-->
+
+<div class="">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th><center>Kategori Adı</center></th>
+                                    <th><center>Haber Başlık </center> </th>
+                                    <th><center>Haber İçerik </center> </th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody id="table">
+
+                                @{
+                                    int i = 0;
+                                    foreach (var item in ViewBag.haberlistele)
+                                    {
+                                        i = i + 1;
+                                        <tr>
+                                            <td>@i</td>
+                                            <td><center><button type='button' class='btn btn-danger' onclick="haberkaldir(@item.ID)">Kaldır</button></center></td>
+                                            <td><center> <button type='button' class='btn btn-block btn-success' onclick="haberdetay(@item.ID)">Güncelle</button></center></td>
+
+                                            @if (item.Statu == 0)
+                                            {
+                                                <td class="col-sm-1"><center><button type='button' class='btn bg-maroon' onclick="anasayfayahaberstatu(@item.ID,1)">Anasayfaya Ekle</button></center></td>
+                                                @*<td class="col-sm-1"><a href="javascript:void(0);" style="color:blue" onclick="anasayfayahaberstatu(@item.ID,1)"><strong>Anasayfaya Ekle</strong></a> </td>*@
+                                            }
+                                            else
+                                            {
+
+                                                <td class="col-sm-1"><center><button type='button' class='btn bg-orange' onclick="anasayfayahaberstatu(@item.ID,0)">Anasayfayadan Kaldır</button></center></td>
+                                                @*<td class="col-sm-1"><a href="javascript:void(0);" style="color:orange" onclick="anasayfayahaberstatu(@item.ID,0)"><strong>Anasayfayadan Kaldır</strong></a> </td>*@
+                                            }
+
+
+                                            <td>
+                                                <center> @Html.Raw(item.Category_Name)</center>
+
+
+                                            </td>
+
+
+                                            <td>
+                                                <center> @Html.Raw(item.News_Title)</center>
+
+
+                                            </td>
+
+                                            <td>
+                                                <center> @Html.Raw(item.News_Description)</center>
+
+
+                                            </td>
+
+
+
+
+                                        </tr>
+
+                                    }
+                                }
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+            <script>
+
+
+                var anasayfayahaberstatu = function (ID, statu) {
+                    var veri = {
+                        ID: ID,
+                        Statu: statu
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/HaberAnasayfaStatu",
+                        data: veri,
+                        dataType: "json",
+
+                    }).done(function (data) {
+                        if (data == "ok") {
+
+                            location.reload();
+                        }
+
+
+                    });
+                }
+
+
+                var haberekle = function () {
+                    var verigonder = {
+
+                        ID: $("#selectkategori").val(),
+
+                        News_Title: $("#HaberBaslik").val(),
+
+
+                        News_Description: CKEDITOR.instances.haberaciklama.getData(),
+
+
+
+
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/haberekle",
+                        data: verigonder,
+                        dataType: "json",
+                    }).done(function (data) {
+                        if (data == "ok") {
+                            alert("Kayıt Başarılı");
+                            location.reload();
+                        }
+                        if (data == "BoşKayıt") {
+                            alert("Lütfen alanları boş bırakmayınız !");
+                        }
+
+                        if (data == "AynıKayıt") {
+                            alert("Eklenmiş kaydı tekrar ekleyemezsiniz!");
+
+                        }
+                    })
+                }
+
+                var haberdetay = function (idhaber) {
+                    location.href = "/Account/HaberDetay?ID=" + idhaber;
+                }
+
+
+
+
+
+
+
+
+
+
+                var haberkaldir = function (idhaber) {
+
+                    var verigonder =
+                    {
+                        ID: idhaber,
+
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/habersil",
+                        data: verigonder,
+                        dataType: "json",
+
+                    }).done(function (data) {
+                        if (data == "ok") {
+                            $("#" + idhaber).hide();
+                            location.reload();
+                        }
+
+
+                    });
+
+
+                }
+
+
+
+
+
+                var kategoridoldur = function () {
+
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/kategoridoldurgetir",
+                        data: "{}",
+                        dataType: "json",
+
+                    }).done(function (data) {
+
+                        $("#selectkategori").empty();
+                        $("#selectkategori").html(data);
+
+
+
+
+                    });
+                }
+
+
+                var KATEKLE = function () {
+                    var verigonder =
+                        {
+                            Category_Name: $("#KategoriBaslik").val()
+
+                        }
+                    $.ajax({
+                        type: "post",
+                        url: "/Account/kategoriekle",
+                        data: verigonder,
+                        dataType: "json",
+
+                    }).done(function (data) {
+
+                        if (data == "ok") {
+                            alert("Kayıt başarılı");
+                            $("#newkategoriekle").modal("hide");
+
+                            kategoridoldur();
+                            //location.reload();
+
+
+                        }
+                        if (data == "boskayit") {
+                            alert("Lütfen başlık alanlarını boş bırakmayınız !");
+
+                        }
+                        if (data == "aynikayit") {
+                            alert("Daha önce eklediğiniz kaydı tekrar ekleyemezsiniz!");
+
+                        }
+
+                    });
+                }
+
+
+
+
+            </script>

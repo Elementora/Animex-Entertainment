@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "SliderCategoryDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+
+
+
+
+<center><h2>Slider Kategori Detay</h2></center>
+
+<input type="hidden" value="@ViewData["ID"].ToString()" id="ID" name="ID" />
+<div class="basic-login">
+    <form role="form">
+        <div>
+
+            <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                <thead>
+                    <tr align="center">
+
+
+                        <th></th>
+                        <th></th>
+                        <th> <center> <a class="btn btn-default" data-toggle="modal" data-target="#slideryerekle">Yeni Slider Ekle</a></center></th>
+
+
+                        
+
+
+                        <th><center>Başlık </center> </th>
+
+                        
+
+
+                    </tr>
+                </thead>
+                <tbody id="table">
+
+                    @{
+                        int i = 0;
+                        foreach (var item in ViewBag.slider)
+                        {
+                            i = i + 1;
+                            <tr>
+                                <td>@i</td>
+                                <td><center><button type='button' class='btn btn-danger' onclick="sliderkaldir(@item.ID)">Kaldır</button></center></td>
+                               
+                                @if (item.Status == 0)
+                            {
+
+                                <td class="col-sm-1"><center> <button type='button' class='btn  btn-info' onclick="haberdefault(@item.ID)">Yayınla</button></center></td>
+
+                            }
+                            else
+                            {
+
+                                    <td class="col-sm-1"><center><button type='button' class='btn  btn-info' disabled="disabled">Yayınlanan</button></center></td>
+                                 
+                                }
+
+
+                                <th></th>
+
+
+                                <td><center><button type='button' class="btn btn-default btn-block" name="yerdetay" id="yerdetay" onclick="sliderdetay(@item.ID)">@Html.Raw(item.News_Title)</button></center></td>
+                                
+                              
+
+
+                               
+
+
+                            </tr>
+
+                        }
+                    }
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal fade" id="slideryerekle" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="newarac" style="text-transform:none;">Yeni Slider Haber Ekleme Formu</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="sirketaracpnl" class="smart-form client-form">
+
+
+
+                    <fieldset>
+
+                        <select class="form-control" id="basliksec" name="basliksec">
+                            <option>Seçiniz..</option>
+                            @foreach (var item in ViewBag.sliderhabercek)
+                            {
+
+                                <option value="@item.ID">@item.News_Title</option>
+                            }
+
+
+                        </select>
+                       
+
+
+                    </fieldset>
+                    <footer>
+                        <button type="button" class="btn" onclick="SlideryerSec()">
+                            Ekle
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                            İptal
+                        </button>
+
+                    </footer>
+
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var SlideryerSec = function () {
+        
+        var verigonder = {
+
+            yerID: $("#ID").val(),
+
+            SliderhaberbaslikID: $("#basliksec").val(),
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/SliderEkle",
+            data: verigonder,
+            dataType: "json",
+        }).done(function (data) {
+            if (data == "ok") {
+                alert("Kayıt Başarılı");
+
+                location.reload();
+            }
+            if (data == "BoşKayıt") {
+                alert("Lütfen alanları boş bırakmayınız !");
+            }
+
+            if (data == "AynıKayıt") {
+                alert("Eklenmiş kaydı tekrar ekleyemezsiniz!");
+
+            }
+        })
+    }
+
+    var haberdefault = function (idstatu) {
+
+        var verigonder = {
+
+            ID: idstatu,
+
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/Account/SliderDefaultYap",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+                $("#" + idstatu).hide();
+                location.reload();
+
+
+            }
+
+
+        });
+
+    }
+
+    var sliderkaldir = function (idslider) {
+
+        var verigonder =
+        {
+            ID: idslider,
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Account/SliderSil",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                $("#" + idslider).hide();
+                location.reload();
+            }
+
+
+        });
+
+
+    }
+
+
+    var sliderdetay = function (idslider) {
+        location.href = "/Account/SliderDetay?ID=" + idslider;
+    }
+</script>

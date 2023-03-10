@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+@using AnimexEntertainmentNetwork.Web.Models;
+@model List<USER>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserList</title>
+</head>
+<body>
+    <div> 
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.USER_NAME</li>
+            }
+            
+        </ul>
+
+    </div>
+</body>
+</html>

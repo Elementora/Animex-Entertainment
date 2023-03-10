@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "SliderYerListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<center>
+    <h2>Slider Yer Listele</h2>
+</center>
+
+    <div class="basic-login">
+        <form role="form">
+            <div>
+
+                <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox">
+                    <thead>
+                        <tr align="center">
+
+
+                            <th></th>
+                            <th></th>
+                            <th> <center> <a class="btn btn-default" data-toggle="modal" data-target="#slideryerekle">Yeni Yer Ekle</a></center></th>
+
+
+                        
+
+
+                            <th><center>Kategori Başlık </center> </th>
+
+                            <th><center>Not</center></th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody id="table">
+
+                        @{
+                            int i = 0;
+                            foreach (var item in ViewBag.sliderkategorilistele)
+                            {
+                                i = i + 1;
+                                <tr>
+                                    <td>@i</td>
+                                    <td><center><button type='button' class='btn btn-danger' onclick="yerkaldir(@item.SliderCategoryID)">Kaldır</button></center></td>
+                                    <td><center> <button type='button' class='btn btn-block btn-success' onclick="yerdetay(@item.SliderCategoryID)">Detay</button></center></td>
+                                   
+
+                                    <td>
+
+
+                                        <center><input type="text" name="sliderkategoriad" id="sliderkategoriad" value="@Html.Raw(item.SliderCategoryName)" onchange="katguncelle(this.value,@item.SliderCategoryID)" /></center>
+
+                                    </td>
+                                    
+
+                                    <th> <center> <a class="btn btn-default" onclick="notguncelle(@item.SliderCategoryID)">Not Guncelle</a></center></th>
+                                    <td>
+                                        <center><input type="text" name="sliderkategorinote" id="sliderkategorinote" value="@Html.Raw(item.SliderCategoryNote)" /></center>
+
+                                    </td>
+
+
+
+
+
+                                </tr>
+
+                            }
+                        }
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="slideryerekle" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="newarac" style="text-transform:none;">Yeni Slider Yer Formu</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <form id="sirketaracpnl" class="smart-form client-form">
+
+
+
+                        <fieldset>
+
+                            <div class="form-group">
+                                <label for="login-username"><i class="icon-user"></i> <b>Slider Yer Başlık</b></label>
+                                <input class="form-control" id="yerbaslik" name="yerbaslik" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="login-username"><i class="icon-user"></i> <b>Slider Yer Not</b></label>
+                                <input class="form-control" id="yernot" name="yernot" type="text">
+                            </div>
+
+
+                        </fieldset>
+                        <footer>
+                            <button type="button" class="btn" onclick="SlideryerEKLE()">
+                                Ekle
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                İptal
+                            </button>
+
+                        </footer>
+
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                    <script>
+
+                                        var SlideryerEKLE = function () {
+                                            var verigonder = {
+                                                SliderCategoryName: $("#yerbaslik").val(),
+                                                SliderCategoryNote: $("#yernot").val(),
+                                            }
+                                            $.ajax({
+                                                type: "post",
+                                                url: "/Account/SliderCategoryEkle",
+                                                data: verigonder,
+                                                dataType: "json",
+                                            }).done(function (data) {
+                                                if (data == "ok") {
+                                                    alert("Kayıt Başarılı");
+                                                    location.reload();
+                                                }
+                                                if (data == "BoşKayıt") {
+                                                    alert("Lütfen alanları boş bırakmayınız !");
+                                                }
+
+                                                if (data == "AynıKayıt") {
+                                                    alert("Eklenmiş kaydı tekrar ekleyemezsiniz!");
+
+                                                }
+                                            })
+                                        }
+
+
+                                        var yerdetay = function (SliderCategoryID) {
+                                            location.href = "/Account/SliderCategoryDetay?ID=" + SliderCategoryID;
+                                        }
+
+
+
+                                        var notguncelle = function (SliderCategoryID) {
+                                            location.href = "/Account/SliderNotGuncelle?ID=" + SliderCategoryID;
+                                        }
+                                    </script>

@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "OnaysizYorumListele";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+<center><h2>Yorumlar Listeleme Ekranı</h2></center>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="basic-login">
+                <form role="form">
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped table-condensed table-hover smart-form has-tickbox ">
+                            <thead>
+                                <tr align="center">
+
+
+
+                                    <th colspan="4"></th>
+
+                                    <th><center>Kategori ID </center> </th>
+                                    <th><center>Kategori Adı </center> </th>
+                                    <th><center>Haber ID </center> </th>
+                                    <th><center>Haber Başlık</center> </th>
+                                    <th><center>Kullanıcı Adı</center> </th>
+                                    <th><center>Email</center> </th>
+                                    <th><center>Yorum İçerik </center> </th>
+                                    <th><center>Yorum Tarihi</center> </th>
+                                    <th><center>Statü</center> </th>
+                                    <th><center>Kullanıcı İP'si </center> </th>
+                                    <th><center>Browser </center> </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                @{
+                                    int i = 0;
+                                    foreach (var item in ViewBag.yorumlar)
+                                    {
+                                        i = i + 1;
+
+
+                                        <tr id="@item.CommentID">
+                                            <td>@i</td>
+                                            <td><center><button type='button' class='btn' onclick="YORUMKALDIR(@item.CommentID)">Kaldır</button></center></td>
+                                            <td><center> <button type='button' class='btn' onclick="DETAY_YORUM(@item.CommentID)">Detay</button></center></td>
+                                            <td><center><button type='button' class='btn' onclick="YORUMONAY(@item.CommentID)">Onay</button></center></td>
+
+                                            <td><center>@item.CategoryID</center></td>
+                                            <td><center>@item.Category_Name</center></td>
+                                            <td><center>@item.NewsID</center></td>
+                                            <td><center>@item.News_Title</center></td>
+                                            <td><center>@item.User_Name</center></td>
+                                            <td><center>@item.User_Email</center></td>
+                                            <td><center> @item.User_Comment</center></td>
+                                            <td><center> @item.Comment_Date</center></td>
+                                            <td><center> @item.Status</center></td>
+                                            <td><center>@item.Comment_IP</center></td>
+                                            <td><center>@item.Browser</center></td>
+                                        </tr>
+
+
+
+                                    }
+                                }
+
+
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ 
+
+        <script>
+            var YORUMKALDIR = function (idpost) {
+                var verigonder =
+                {
+                    ID: idpost,
+
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/Account/YorumSil",
+                    data: verigonder,
+                    dataType: "json",
+
+                }).done(function (data) {
+                    if (data == "ok") {
+                        $("#" + idpost).hide();
+                        location.reload();
+                    }
+
+
+                });
+            }
+
+
+        var DETAY_YORUM = function (idpost) {
+            location.href = "/Account/YorumDetay?ID=" + idpost;
+        }
+
+
+        var YORUMONAY = function (idyorum) {
+
+            var verigonder2=
+                {
+                    ID: idyorum,
+
+
+                }
+
+
+            $.ajax({
+                type: "post",
+                url: "/Account/YorumOnay",
+                data: verigonder2,
+                dataType: "json",
+
+            }).done(function (data) {
+                if (data == "ok") {
+                    $("#" + idyorum).hide();
+                    location.reload();
+                }
+
+
+            });
+
+
+        }
+    </script>

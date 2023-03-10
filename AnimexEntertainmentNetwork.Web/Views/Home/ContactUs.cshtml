@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAbout.cshtml";
+}
+
+<p style="color:red;">Alanların Doldurulması Zorunludur !</p>
+
+<form role="form" class="contact-form" id="contact-form" method="post">
+    <div class="form-group">
+        <div class="controls">
+            <input class="form-control" type="text" placeholder="Adınız" name="ad" id="ad">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="controls">
+            <input class="form-control" type="email" class="email" placeholder="E-mail" name="email" id="email">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="controls">
+            <input class="form-control" type="text" class="requiredField" placeholder="Konu" name="konu" id="konu">
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="controls">
+            <textarea class="form-control" rows="7" placeholder="Mesaj" name="mesaj" id="mesaj"></textarea>
+        </div>
+    </div>
+    <button type="button" class="btn-system btn-large form-control " onclick="iletisimgonder()">Gönder</button><div id="success" style="color:#34495e;"></div>
+
+</form>
+
+
+
+
+
+<script>
+
+    var iletisimgonder = function () {
+
+        $("#gondertbtn").text("Bekleyin");
+        var verigonder = {
+
+            ad: $("#ad").val(),
+            email: $("#email").val(),
+            konu: $("#konu").val(),
+            mesaj: $("#mesaj").val(),
+
+        }
+        $.ajax({
+            type: "post",
+            url: "/Home/Iletisimgonder",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+            if (data == "ok") {
+                alert("Form Gönderildi");
+                location.reload();
+
+            }
+            if (data == "nok") {
+                alert("Lütfen bütün alanları doldurunuz");
+
+            }
+
+
+        });
+    }
+
+</script>

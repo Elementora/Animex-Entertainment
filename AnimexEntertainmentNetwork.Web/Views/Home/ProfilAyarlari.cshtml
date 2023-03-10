@@ -1,0 +1,485 @@
+﻿
+@{
+    ViewBag.Title = "ProfilAyarlari";
+    Layout = "~/Views/Shared/_AnimexEntertainmentHome.cshtml";
+}
+
+@model AnimexEntertainmentNetwork.Web.Models.RESIMEKLE
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link href="~/AdminLTE-2.0.3/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+<!--DATE TİME PİCKER-->
+
+<script src="~/AdminLTE-2.0.3/plugins/datepicker/bootstrap-datepicker.js"></script>
+<link href="~/AdminLTE-2.0.3/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<script src="~/AdminLTE-2.0.3/plugins/datepicker/locales/bootstrap-datepicker.tr.js"></script>
+<!--DATE TİME PİCKER-->
+
+<title>@Page.Title</title>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+
+
+
+            <div class="nav-tabs-tabs" style="padding-top:80px;">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a aria-expanded="true" href="#tab_1" data-toggle="tab">Profil Ayarları</a></li>
+                    <li class=""><a aria-expanded="false" href="#tab_2" data-toggle="tab">Yorumlarınız</a></li>
+
+                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                </ul>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="tab-content" id="tabs">
+
+                        <div class="tab-pane active" id="tab_1">
+
+                            <div class="col-md-12">
+                               
+
+                                <div class="col-md-12  p-profile-settings profile_box_shadow">
+
+                                    <div class="col-md-3">
+                                        <span>Resim</span>
+                                    </div>
+
+
+
+                                    <div class="col-md-9">
+
+
+
+                                        <div class="col-md-3 ">
+                                            <img class="user_profile_img_border" src="@ViewData["EkibimizFotoFile"]" alt="" height="114" width="100" />
+
+
+
+
+                                        </div>
+
+
+
+                                        <div class="service-wrapper">
+
+                                            <img class="img-responsive center-block" style="height:auto;width:50%" @*src="@ViewData["EkibimizFotoFile"]"*@>
+                                            @using (Html.BeginForm("EkibimizresimGuncelle", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+
+
+
+                                                @Html.LabelFor(m => m.resim)
+                                                @Html.TextBoxFor(m => m.resim, new { type = "file" })
+                                                @Html.HiddenFor(m => m.ID, new { value = ViewData["ID"] })
+
+
+
+                                                <input type="submit" class="btn btn-primary" value="Resim Güncelle" />
+
+                                            }
+
+                                        </div>
+
+
+
+                                        @*<label for="exampleInputFile">Resim Yükle</label>
+
+
+                <input  name="useravatar" type="submit" value="Resim Güncelle" />*@
+
+
+
+                                        <p class="help-block">
+                                            Desteklenen resim formatları: JPG, GIF, yada PNG.</br>
+                                            Maximum resim boyutu 700KB 'dır.
+                                        </p>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+                                        <div class="col-md-3">
+                                            <span>Kullanıcı Adı</span>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Kullanıcı Adı" id="username" name="username" value="@ViewData["kullaniciadi"]" type="text" />
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+                                        <div class="col-md-3">
+                                            <span>Görünen İsim</span>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="Görünen İsim" id="rumuz" name="rumuz" value="@ViewData["nickname"]" type="text" />
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+
+                                        <div class="col-md-3">
+                                            <span>E-Mail Adresi</span>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="E-Mail Adresi" id="mail" name="mail" value="@ViewData["email"]" type="email" />
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+                                        <div class="col-md-3">
+                                            <span>Şifre</span>
+                                        </div>
+
+
+                                        <div class="col-md-9">
+                                            <input class="form-control" placeholder="password" id="password" name="password" value="@ViewData["password"]" type="password" />
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+                                        <div class="col-md-3"><span>Doğum Tarihi</span></div>
+                                        <div class="col-md-9"><input class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" id="dogumtarihi" value="@ViewData["dogumtarihi"]" name="dogumtarihi" type="date" /></div>
+
+
+                                    </div>
+
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+
+                                        <div class="col-md-3">
+                                            <span>Cinsiyet</span>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <select id="cinsiyetslc" name="cinsiyetslc" class="form-control ">
+                                                @{  if (ViewData["cinsiyet"].ToString() == "Kadın")
+                                                  {
+                                                    <option value="">Seçiniz</option>
+                                                    <option selected="selected" value="Kadın">Kadın</option>
+                                                    <option value="Erkek">Erkek</option> }
+
+                                                  if (ViewData["cinsiyet"].ToString() == "Erkek")
+                                                  {
+                                                    <option value="">Seçiniz</option>
+                                                    <option value="Kadın">Kadın</option>
+                                                    <option selected="selected" value="Erkek">Erkek</option> }
+
+                                                  if (ViewData["cinsiyet"].ToString() == " " || ViewData["cinsiyet"].ToString() == "")
+                                                  {
+                                                    <option value="">Seçiniz</option>
+                                                    <option value="Kadın">Kadın</option>
+                                                    <option value="Erkek">Erkek</option> }
+
+                                                }
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="col-md-12  p-profile-settings profile_box_shadow">
+
+                                        <div class="col-md-3">
+                                            <span>Hakkımda</span>
+                                        </div>
+
+
+                                        <div class="col-md-9">
+                                            <textarea class="form-control" rows="3" id="about" name="about" placeholder=" Hakkımda ...">@ViewData["hakkimda"]</textarea>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-12  p-profile-settings">
+                                        <div class="col-md-3">
+
+                                        </div>
+
+                                        <button class="col-md-6 btn btn-success" type="button" onclick="profilayariguncellebtn()">Ayarları Kaydet</button>
+
+                                    </div>
+
+                                </div>
+
+                  </div><!-- /.tab-pane -->
+                        @if (User.Identity.Name == "" || User.Identity.Name == null)
+                        {
+                            <script>
+                                if ($('#tabs:visible').length == 0) {
+
+                                }
+                            </script>
+
+
+                        }
+
+                        else
+                        {
+                            <script>
+                                var profilayariguncellebtn = function () {
+
+
+                                    var verigondeR = {
+                                        username: $("#username").val(),
+                                        rumuz: $("#rumuz").val(),
+                                        mail: $("#mail").val(),
+                                        password: $("#password").val(),
+                                        gender: $("#cinsiyetslc").val(),
+                                        about: $("#about").val(),
+                                        birthday: $("#dogumtarihi").val()
+
+
+                                    }
+                                    $.ajax({
+                                        type: "post",
+                                        url: "/Account/ProfilGuncelle",
+                                        data: verigondeR,
+                                        dataType: "json",
+
+                                    }).done(function (data) {
+
+                                        if (data == "ok") {
+                                            alert("Güncellendi");
+                                            location.reload();
+                                        }
+
+
+                                    });
+
+
+
+                                }
+
+
+                            </script>
+
+
+
+
+
+
+                        }
+
+
+
+                        <!--TAB 2-->
+
+
+                        <div class="tab-pane" id="tab_2">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="box">
+
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover" style="height:387px;">
+                                                <tbody>
+                                                    <tr>
+
+                                                        <th>Konu</th>
+                                                        <th>Tarih</th>
+
+                                                        <th>Yorum</th>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>John Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Alexander Pierce</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Bob Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Mike Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>John Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Alexander Pierce</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Bob Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Mike Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>John Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Alexander Pierce</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Bob Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Mike Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>John Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Alexander Pierce</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Bob Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Mike Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>John Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Alexander Pierce</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Bob Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Mike Doe</td>
+                                                        <td>11-7-2014</td>
+
+                                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!-- /.box-body -->
+                                    </div><!-- /.box -->
+                                </div>
+                            </div>
+                        </div><!-- /.tab-pane -->
+
+
+                    </div><!-- /.tab-content -->
+                </div>
+            </div><!-- nav-tabs-custom -->
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- End of body section HTML codes -->
+
+

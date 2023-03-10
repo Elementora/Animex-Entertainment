@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+  
+    <link href="https://fonts.googleapis.com/css?family=Doppio+One" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+
+  
+    <script src="~/Content/JavaScript/ac/jquery-1.9.1.min.js"></script>
+    <link href="~/Content/Css/socialhome.css" rel="stylesheet" />
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Content/Css/theme.min.css" rel="stylesheet" />*@
+    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/JavaScript/bootstrap.min.js"></script>
+
+    
+    <link href="~/Content/Css/Home.css" rel="stylesheet" />
+    <link href="~/Content/Css/Profile.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-color:#F6F6F6; overflow-x:hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" id="mainmenu">
+
+
+
+        <div class="container">
+            <div class="navbar-header" style="width:320px;">
+
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brando  main-header " href="#">
+                    <img style="width:71%; margin-top:10px; margin-left:10px; " src="~/Content/Logos/logo2.png" />
+                </a>
+
+
+
+
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+
+                <ul class="nav navbar-nav ">
+
+
+                    <li class="underline-menu"><a href="/Home/Index" style="font: normal bold 16px / 20px  roboto, helvetica, arial, verdana, sans-serif;">Anasayfa</a></li>
+
+
+
+
+
+
+
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Haberler <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Özel</a></li>
+                                <li><a href="#">Anime</a></li>
+                                <li><a href="#">Sanat</a></li>
+                                <li><a href="#">Cosplay</a></li>
+                                <li><a href="#">Etkinlik</a></li>
+                                <li><a href="#">Figür</a></li>
+                                <li><a href="#">Yemek</a></li>
+                                <li><a href="#">Oyun</a></li>
+                                <li><a href="#">Manga</a></li>
+                                <li><a href="#">Film</a></li>
+                                <li><a href="#">Müzik</a></li>
+                                <li><a href="#">Vocaloid</a></li>
+                                <li><a href="#">Ürün</a></li>
+
+                            </ul>
+                        </li>*@
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.Name == "" || User.Identity.Name == null)
+                    {
+                        <li id="btn_giris" class="login_singup_buttons"><button data-toggle="modal" data-target="#GirisModal" class="btn btn-block btn-default">Giriş Yap</button></li>
+                        <li id="btn_kayit" class="login_singup_buttons"><button data-toggle="modal" data-target="#KayitModal" class="btn btn-block btn-success">Kayıt Ol !</button></li>
+                        @*<li id="btn_kayit" class="login_singup_buttons"><button role="button" onclick="window.location.href = '/Home/SingUp'" class="btn btn-block btn-success">Kayıt Ol !</button></li>*@
+                    }
+                    else
+                    {
+                        <div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class=" dropdown " id="kullanici_menu">
+                                    <div style="position:relative; float:left;"><img style=" width: 50px;" src="@ViewData["EkibimizFotoFile"]" /></div>
+
+                                    <a style="position:relative; float:left;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        Hoşgeldin @User.Identity.Name <span class="caret"></span>
+                                    </a>
+
+
+                                    <ul class="dropdown-menu" role="menu">
+
+                                        <li><a href="/Account/Index">Admin Panel</a></li>
+                                        <li><a href="/Home/ProfilAyarlari">Profil Ayarları</a></li>
+
+                                        <li><a href="/Account/logout">Çıkış Yap</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+
+
+
+                </ul>
+
+
+
+                @*@if (User.Identity.IsAuthenticated)
+                    {
+                    }*@
+
+
+
+
+
+
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+
+
+    <div>
+        <!---->
+        <div style="margin-top:50px !important; position:fixed; z-index:1;">
+
+            <div class="left sex1">
+                <div class="item">
+                    <span class="glyphicon glyphicon-th-large"></span>
+                </div>
+                <div class="item active">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    Все документы
+                </div>
+                <div class="item">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Расходные накладные
+                </div>
+                <div class="item">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    Приходные накладные
+                </div>
+                <div class="item">
+                    <span class="glyphicon glyphicon-random"></span>
+                    Акты переоценки
+                </div>
+                <div class="item">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Акты списания
+                </div>
+            </div>
+
+
+        </div>
+        <!---->
+
+
+
+        <div style="padding-top:50px;">
+            <div class="row">
+                <div class="col-md-12" id="user-profile-cover" style="height:250px; padding:0px;">
+                    <div class="panel-body profile_cover_image">
+
+                    </div>
+
+                </div>
+
+
+                <!--BBUBUBU-->
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- wrapper -->
+        <div id="wrapper">
+            
+
+
+            <!--class="col-xs-4 col-md-2 profile_user_image_blok"-->
+            <section class="bg-grey-50 padding-top-60 padding-top-sm-30">
+
+
+                <div class="container">
+
+                    <div class="row">
+                     
+
+                        <div class="col-md-4 col-sm-4 " style="margin-top:-200px;">
+                            <div class="widget">
+                                <div class="panel panel-default">
+                                    <div id="user-profile-image">
+                                        <div class="panel-body" style="padding:0px;">
+                                            <img src="~/Content/images/Galeri/lola_by_sakimichan-d86ob3a.jpg" class="img-responsive" alt="Cinque Terre">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="panel-heading">
+                                        About me
+                                        <div style="float:right">
+
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar2">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div class="page-header" style="margin:0px!important;">
+                                            <div class="page-title"><h2 style="float: left; background: linear-gradient(135deg,#1ebbf0 30%,#39dfaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; ">YAKUZI</h2><a href="#" class="btn btn-primary btn-sm btn-rounded" data-toggle="tooltip" title="Add friend"><i class="fa fa-user-plus"></i></a></div>
+
+                                        </div>
+
+
+                                        I am a frontend developer & designer. Love to create awesome designs and unique websites.
+                                        <ul class="panel-list margin-top-25">
+                                            <li><i class="fa fa-clock-o"></i> Joined December 2009</li>
+                                            <li><i class="fa fa-map-marker"></i> United Kingdom</li>
+                                            <li><i class="fa fa-chain-broken"></i> Gameforest</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Navigation</div>
+                                    <div class="panel-body no-padding">
+                                        <ul class="panel-list-bordered">
+                                            <li><a href="#"><i class="fa fa-gamepad"></i> Games (4)</a></li>
+                                            <li><a href="#"><i class="fa fa-film"></i> Videos (2)</a></li>
+                                            <li><a href="#"><i class="fa fa-picture-o"></i> Galleries (3)</a></li>
+                                            <li><a href="#"><i class="fa fa-calendar-o"></i> Events</a></li>
+                                            <li><a href="#"><i class="fa fa-users"></i> Groups (1)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget widget-friends">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Friends (34)</div>
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li><a href="#" data-toggle="tooltip" title="Orb"><img src="img/user/avatar2.jpg" alt=""></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="Patrick"><img src="img/user/avatar3.jpg" alt=""></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="John"><img src="img/user/avatar4.jpg" alt=""></a></li>
+                                            <li><a href="#" data-toggle="tooltip" title="Michael"><img src="img/user/avatar5.jpg" alt=""></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="widget widget-list">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading bold">Recent Feeds</div>
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="thumb"><img src="img/blog/xs/1.jpg" alt=""></a>
+                                                <div class="widget-list-meta">
+                                                    <h4 class="widget-list-title"><a href="#">Overwatch Closed Beta</a></h4>
+                                                    <p><i class="fa fa-clock-o"></i> September 15, 2016</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="thumb"><img src="img/blog/xs/2.jpg" alt=""></a>
+                                                <div class="widget-list-meta">
+                                                    <h4 class="widget-list-title"><a href="#">Blood and Gore</a></h4>
+                                                    <p><i class="fa fa-clock-o"></i> September 13, 2016</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="thumb"><img src="img/blog/xs/3.jpg" alt=""></a>
+                                                <div class="widget-list-meta">
+                                                    <h4 class="widget-list-title"><a href="#">Warner Bros. Interactive</a></h4>
+                                                    <p><i class="fa fa-clock-o"></i> September 12, 2016</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="thumb"><img src="img/blog/xs/4.jpg" alt=""></a>
+                                                <div class="widget-list-meta">
+                                                    <h4 class="widget-list-title"><a href="#">Sharks Don't Sleep</a></h4>
+                                                    <p><i class="fa fa-clock-o"></i> September 11, 2016</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="thumb"><img src="img/blog/xs/5.jpg" alt=""></a>
+                                                <div class="widget-list-meta">
+                                                    <h4 class="widget-list-title"><a href="#">GTA 5 Reaches 5 Million</a></h4>
+                                                    <p><i class="fa fa-clock-o"></i> September 10, 2016</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 col-sm-8">
+
+                            <section class="profile-nav height-50 border-bottom-1 border-grey-300  hidden-xs">
+                                <div class="tab-select sticky">
+                                    <div class="container">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="active"><a href="#">Timeline</a></li>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Friends <span>(34)</span></a></li>
+                                            <li><a href="#">Images <span>(8)</span></a></li>
+                                            <li><a href="#">Videos <span>(2)</span></a></li>
+                                            <li><a href="#">Groups</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <div class="panel panel-default margin-bottom-40">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="4" placeholder="What's in your head?..."></textarea>
+                                    </div>
+                                    <div class="btn-group pull-left">
+                                        <a href="#" class="btn btn-link btn-icon-left no-padding-left"><i class="fa fa-image"></i> Image</a>
+                                        <a href="#" class="btn btn-link btn-icon-left"><i class="fa fa-film"></i> Video</a>
+                                        <a href="#" class="btn btn-link btn-icon-left"><i class="fa fa-map-marker"></i> Location</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-icon-left pull-right"><i class="fa fa-edit"></i> Submit</button>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-post">
+                                <div class="panel-body">
+                                    <div class="post">
+                                        <div class="post-header post-author">
+                                            <a href="#" class="author" data-toggle="tooltip" title="YAKUZI"><img src="img/user/avatar.jpg" alt=""></a>
+                                            <div class="post-title">
+                                                <h3><a href="#">Deadpool Gets the Movie He Deserves</a></h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="fa fa-calendar-o"></i> April 13, 2016</li>
+                                                    <li><a href="#">#hashtag</a>, <a href="#">#witcher 3</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        Etiam et sollicitudin elit. Sed ultrices aliquet dui, eu aliquet metus sodales sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis porttitor varius pulvinar. Vivamus efficitur vulputate imperdiet.
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <ul class="post-action">
+                                        <li><a href="#"><i class="fa fa-heart"></i> like (5)</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-reply"></i> share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default panel-post">
+                                <div class="panel-body">
+                                    <div class="post">
+                                        <div class="post-header post-author">
+                                            <a href="#" class="author" data-toggle="tooltip" title="YAKUZI"><img src="img/user/avatar.jpg" alt=""></a>
+                                            <div class="post-title">
+                                                <h3><a href="#">Official Mirror’s Edge Catalyst Trailer</a></h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="fa fa-calendar-o"></i> April 13, 2016</li>
+                                                    <li><a href="#">#hashtag</a>, <a href="#">#witcher 3</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="post-thumbnail">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/IsDX_LiJT7E?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+
+                                        Etiam et sollicitudin elit. Sed ultrices aliquet dui, eu aliquet metus sodales sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis porttitor varius pulvinar. Vivamus efficitur vulputate imperdiet.
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <ul class="post-action">
+                                        <li><a href="#" class="active"><i class="fa fa-heart"></i> you like it (7)</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-reply"></i> share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4 class="page-header text-center no-padding"><i class="fa fa-clock-o"></i> February, 2016</h4>
+                            <div class="panel panel-default panel-post">
+                                <div class="panel-body">
+                                    <div class="post">
+                                        <div class="post-header post-author">
+                                            <a href="#" class="author" data-toggle="tooltip" title="YAKUZI"><img src="img/user/avatar.jpg" alt=""></a>
+                                            <div class="post-title">
+                                                <h3><a href="#">The Witcher 3 is Game of the Year</a></h3>
+                                                <ul class="post-meta">
+                                                    <li><i class="fa fa-calendar-o"></i> April 13, 2016</li>
+                                                    <li><a href="#">#hashtag</a>, <a href="#">#witcher 3</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        Etiam et sollicitudin elit. Sed ultrices aliquet dui, eu aliquet metus sodales sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis porttitor varius pulvinar. Vivamus efficitur vulputate imperdiet.
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <ul class="post-action">
+                                        <li><a href="#"><i class="fa fa-heart"></i> like (5)</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-reply"></i> share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <center><a href="#" class="btn btn-primary btn-lg btn-shadow btn-rounded">Show More</a></center>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /#wrapper -->
+        @RenderBody()
+
+
+
+    </div>
+
+
+
+
+    <footer class="footer">
+
+        <div class="footer_sprite">  </div>
+
+
+
+        <nav class="footerNav col-md-7 col-md-offset-3">
+            <div class="row mt_footer">
+
+                <div class="col-md-3 footerBox">
+                    <div class="inner">
+                        <ul class="footerNavList">
+                            <li><span>Hakkımızda</span></li>
+                            <li><a onclick="aboutus()">Animex Entertainment Network Nedir ?</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 footerBox">
+                    <div class="inner">
+                        <ul class="footerNavList">
+                            <li><span>Yardım</span></li>
+
+                            <li><a onclick="terms()">Kullanım Şartları</a></li>
+                            <li><a onclick="policy()">Gizlilik Politikası</a></li>
+                            <li><a onclick="contactus()">İletişime Geç</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 footerBox">
+                    <div class="inner">
+                        <ul class="footerNavList">
+                            <li><span>Daha Fazla</span></li>
+
+                            <li><a onclick="ikonbanner()">İkon ve Banner</a></li>
+                            <li><a onclick="developerblog()">Developer Blog</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="footerLogo mt_footer col-md-12">
+            <div class="row">
+                <div class="container">
+                    <center>
+                        <p>
+                            <a href="/" class="footerlogo-color">
+                                @*<img src="#" alt="" width="37" height="27" />*@
+                                <span>Animex Entertainment Network</span>
+                            </a>
+                        </p><p class="footerLogo mt_footer" style="color:white;">
+                            Made with <a style="color:#FF0066;">♥ </a>
+                            in Türkiye
+                        </p>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- FOOTER-->
+
+
+
+</body>
+</html>

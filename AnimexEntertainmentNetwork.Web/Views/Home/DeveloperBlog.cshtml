@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "DeveloperBlog";
+    Layout = "~/Views/Shared/_AnimexEntertainmentHome.cshtml";
+}
+
+<link href="~/Content/Css/DevBlog/style.css" rel="stylesheet" />
+<section id="cd-timeline" class="cd-container" style="padding-top:100px;">
+
+@{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Developer_Blog_TB_get().ToList())
+{
+  
+  <div class="cd-timeline-block">
+        <div class="cd-timeline-img cd-picture">
+            <img src="@item.Dev_Create_User_Photo" alt="Picture">
+        </div> <!-- cd-timeline-img -->
+        <div class="cd-timeline-content">
+            
+            <p>@Html.Raw(item.DevBlog_Description)</p>
+            
+            <span class="cd-date">@item.Dev_Blog_Date</span>
+        </div> <!-- cd-timeline-content -->
+    </div> <!-- cd-timeline-block -->
+  
+  
+  }
+  }
+
+    
+
+    
+</section> <!-- cd-timeline -->

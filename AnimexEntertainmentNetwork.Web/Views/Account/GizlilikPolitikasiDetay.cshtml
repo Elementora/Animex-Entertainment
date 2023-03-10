@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "GizlilikPolitikasiDetay";
+    Layout = "~/Views/Shared/_AnimexEntertainmentAdmin.cshtml";
+}
+
+
+
+<center><h2>Gizlilik Politikası Güncelleme Ekranı</h2></center>
+
+
+<input type="hidden" value="@ViewData["PolitikaID"].ToString()" id="ID" name="ID" />
+
+<div class="form-group">
+    <div class="col-md-12">
+        <div class="col-md-1">
+            <label for="login-username"><i class="icon-user"></i> <b>İçerik Alanı:</b></label>
+        </div>
+        <div class="col-md-11">
+            <textarea id="PolitikaAciklama" name="PolitikaAciklama">@ViewData["Politikaİcerik"].ToString()</textarea>
+        </div>
+    </div>
+    &nbsp;
+    &nbsp;
+
+    <div class="col-md-12">
+        <center><button type="button" onclick="politikaguncelle()" class="btn btn-success">Gizlilik Politikası Güncelle</button>   <button class="btn" onclick="    geri()">Geri</button></center>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">CKEDITOR.replace("PolitikaAciklama") </script>
+
+<script>
+    var politikaguncelle = function () {
+
+
+
+
+
+        var PolitikaID = $("#ID").val();
+
+        var Policy_Detail = CKEDITOR.instances.PolitikaAciklama.getData();
+
+        var verigonder =
+            {
+                PolitikaID: PolitikaID,
+
+                Policy_Detail: Policy_Detail,
+
+            }
+        $.ajax({
+            type: "post",
+            url: "/Account/gizlilikpolitikasiguncelle",
+            data: verigonder,
+            dataType: "json",
+
+        }).done(function (data) {
+
+            if (data == "ok") {
+
+                alert("Güncellendi");
+
+                location.reload();
+            }
+
+
+
+        });
+
+
+    }
+
+</script>

@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "SingUp";
+    Layout = "~/Views/Shared/_AnimexEntertainmentLogin.cshtml";
+}
+
+<div class="col-sm-5 form-box wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+    <div class="form-top">
+        <div class="form-top-left">
+            <center>
+                <h3>Kayıt Ol</h3>
+                <p>Anime ile dolu yaşama Bir adım daha...</p>
+            </center>
+        </div>
+        <div class="form-top-right">
+            <span aria-hidden="true" class="typcn typcn-mail"></span>
+        </div>
+    </div>
+    <div class="form-bottom contact-form">
+        <form role="form" action="" method="post">
+            <div class="form-group">
+                <label class="sr-only" for="contact-email">Kullanıcı Adı</label>
+                <input type="text" name="kullaniciadi" id="kullaniciadi" placeholder="Kullanıcı Adı..." class="contact-email form-control">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="contact-subject">Şifre</label>
+                <input type="password" id="kayitsifre" name="kayitsifre" placeholder="Şifre..." class="contact-subject form-control">
+            </div>
+            <div>
+                <center>
+                    <ul>
+
+                        <li style="margin: 0; padding: 0; list-style-type: none;"><a>Şifremi Unuttum !</a></li>
+                        <li style="margin: 0; padding: 0; list-style-type: none;"><a>Kayıt Ol</a></li>
+
+
+                    </ul>
+                </center>
+            </div>
+            <button type="button" class="btn btn-success btn-lg" onclick="uyekayit()" style="width:100%;">Giriş Yap</button>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    var uyekayit = function () {
+
+        var username = $("#kullaniciadi").val();
+
+        var password = $("#kayitsifre").val();
+
+        var mail = $("#email").val();
+
+        var verigonder3 = { username: username, password: password, mail: mail, };
+
+        $.ajax({
+            type: "post",
+            url: "/Account/kayitol",
+            data: verigonder3,
+            dataType: "json",
+            error: function (err) {
+
+                alert("Lütfen Tüm alanları eksiksiz doldurunuz");
+            }
+
+        }).done(function (response) {
+            if (response == "ok") {
+                location.href = "/Home/Index";
+            }
+            if (response == "aynikayit") {
+                alert("Aynı kaydı tekrar ekleyemezsiniz");
+            }
+            if (response == "nok") {
+                alert("Lütfen bütün alanları doldurunuz");
+            }
+        });
+
+    }
+
+</script>
+
+
+

@@ -1,0 +1,1689 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnimexEntertainmentHome.cshtml";
+}
+
+
+
+<!--Yeni Slider Css-->
+@*<link href="~/Content/Css/ac/ac.global.css" rel="stylesheet" />*@
+@*<link href="~/Content/Css/ac/ac.index.css" rel="stylesheet" />*@
+
+
+
+@*<link href="~/Content/Css/ac/ac.page.nav.index.css" rel="stylesheet" />*@
+
+<!--Yeni Slider Css-->
+
+
+
+
+
+
+
+
+<div class="container">
+                         
+    
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        
+
+
+
+        <div class="owl-carousel owl-theme" style=" margin-top :100px; margin-bottom:50px;">
+
+            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan1().Take(1))
+            {
+                        <div class="item item_owl">
+                            <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 15))...</h3>
+                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                                                                            {
+                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                                                                            }}
+                            <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                        </div>
+
+
+
+                        }}
+
+
+
+                            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan2().Take(1))
+                            {
+                                <div class="item item_owl">
+                                    <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 15))...</h3>
+                                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                    {
+                                        <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                    }}
+                                    <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                                </div>
+
+
+
+                            }}
+
+
+
+
+
+
+                        @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan3().Take(1))
+                        {
+                            <div class="item item_owl">
+                                <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 5))...</h3>
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                {
+                                    <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                }}
+                                <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                            </div>
+
+
+
+                        }}
+
+
+
+
+
+
+
+            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan4().Take(1))
+            {
+                <div class="item item_owl">
+                    <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 5))...</h3>
+                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                    {
+                        <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                    }}
+                    <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                </div>
+
+
+
+            }}
+
+
+
+
+
+
+
+
+            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan5().Take(1))
+            {
+                <div class="item item_owl">
+                    <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 5))...</h3>
+                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                    {
+                        <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                    }}
+                    <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                </div>
+
+
+
+            }}
+
+
+
+
+
+            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan6().Take(1))
+            {
+                <div class="item item_owl">
+                    <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 5))...</h3>
+                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                    {
+                        <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                    }}
+                    <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                </div>
+
+
+
+            }}
+
+
+
+
+            @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan7().Take(1))
+            {
+                <div class="item item_owl">
+                    <h3 class="owl_h3" title="@item.News_Title" onclick="haberoku(@item.News_ID)">1  @Html.Raw(item.News_Title.Substring(0, 5))...</h3>
+                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                    {
+                        <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                    }}
+                    <p class="owl_p">@Html.Raw(item.News_Description.Substring(0, 50))... </p>
+
+
+
+                </div>
+
+
+
+            }}
+
+
+
+
+
+
+           
+        </div>
+        
+        
+        
+        
+
+
+
+
+         
+    </div>
+
+
+
+
+
+
+                         
+
+
+
+
+
+
+
+
+
+
+
+        <!--BURASI-->
+        @*<div id="slider" class="col-lg-12 col-md-12 col-sm-12  p-slider">
+
+
+
+
+            <div class="ui-wm clearfix in-banner-wrap">
+                <div class="banner blur-banner" id="banner">
+                    <div class="in-banner-con">
+                        <div class="bx-wrapper">
+                            <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 356px;">
+                                <div class="bx-wrapper" style="max-width: 9000px;">
+                                    <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 356px;">
+                                        <ul class="in-banner s" id="in-banner" style="width: auto; position: relative;">
+
+
+                                            <li style="float: none;  position: absolute; width: 9000px; z-index: 0; display: list-item;">
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan1().Take(1))
+                                                {
+                                                    <a class="no31" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 15))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+
+
+                                                }}
+
+
+
+
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan2().Take(1))
+                                                {
+
+
+
+                                                    <a class="no32" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+
+
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+
+                                                        }}
+
+
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 15))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 20))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+
+
+
+                                                }}
+
+
+
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan3().Take(1))
+                                                {
+
+                                                    <a class="no33" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                             <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+
+
+                                                }}
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan4().Take(1))
+                                                {
+
+
+
+                                                    <a class="no34" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+
+
+                                                }}
+
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan5().Take(1))
+                                                {
+
+
+                                                    <a class="no35" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+
+
+                                                }}
+
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan6().Take(1))
+                                                {
+
+                                                    <a class="no26" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+
+
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+
+                                            </li>
+
+
+                                            <li style="float: none;  position: absolute; width: 9000px; z-index: 50; display: none;">
+
+                                                    @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan7().Take(1))
+                                                    {
+                                                        <a class="no21" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+                                                    }}
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan8().Take(1))
+                                                {
+                                                    <a class="no22" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan9().Take(1))
+                                                {
+                                                    <a  class="no23" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+                                                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan10().Take(1))
+                                                {
+                                                    <a class="no24" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+
+                                                    @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan11().Take(1))
+                                                {
+                                                    <a class="no25" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+
+                                                        @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan12().Take(1))
+                                                {
+                                                    <a class="no26" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                        @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                        {
+                                                            <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                        }}
+                                                        <p class="in-banner-info">
+                                                            <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                            <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                            <i class="in-banner-icon">&nbsp;</i>
+                                                        </p>
+                                                        <span class="in-banner-bg"></span>
+                                                        <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                    </a>
+                                                }}
+
+                                                    </li>
+
+
+
+
+                                                    <li class="col-lg-12" style="float: none;  position: absolute; width: 9000px; z-index: 0; display: none;">
+
+
+                                                    @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan13().Take(1))
+                                                    {
+                                                        <a class="no41" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+                                                    }}
+
+
+
+                                                         @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan14().Take(1))
+                                                    {
+                                                        <a class="no42" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+
+                                                    }}
+
+
+                                                      @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan15().Take(1))
+                                                    {
+                                                        <a class="no43" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+                                                    }}
+
+
+
+                                                          @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan16().Take(1))
+                                                    {
+                                                        <a class="no44" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+
+                                                    }}
+
+
+                                                         @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderTB_get_alan17().Take(1))
+                                                    {
+                                                        <a class="no45" title="@item.News_Title" onclick="haberoku(@item.News_ID)">
+                                                            @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SliderFoto_TB_get(item.ID))
+                                                            {
+                                                                <img src="@item2.FotoURL" alt="@item2.FotoName">
+
+                                                            }}
+                                                            <p class="in-banner-info">
+                                                                <strong>@Html.Raw(item.News_Title.Substring(0, 5))...</strong>
+                                                                <span class="in-banner-ft-info">@Html.Raw(item.News_Description.Substring(0, 50))...</span>
+                                                                <i class="in-banner-icon">&nbsp;</i>
+                                                            </p>
+                                                            <span class="in-banner-bg"></span>
+                                                            <span class="in-banner-name bg-org">《@item.News_Title》<span class="icon-right"></span></span>
+                                                        </a>
+                                                    }}
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="in-banner-arrow" id="in-banner-arrow">
+                            <a id="sonra" href="javascript:void(0)" class="in-banner-leftbtn" title="Sol">Left</a>
+                            <a id="once" href="javascript:void(0)" class="in-banner-rightbtn" title="Sağ">Right</a>
+                        </div>
+                    </div>
+                    <div class="in-banner-page clearfix" id="in-banner-page">
+                        <a class="in-banner-item in-banner-green">
+                            @*<span class="in-banner-focus" style="width: 0%; overflow: hidden; display: block;"><span id="in-animate-egg" class="in-animate-egg-1" style="display: inline;"></span></span>*@
+        @*<span class="in-banner-focus" style="width: 0%; overflow: hidden; display: block;"><span id="" class="" style="display: inline;"></span></span>
+
+                                </a>
+                                <a class="in-banner-item current"></a>
+                                <a class="in-banner-item in-banner-green"></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+            </div>*@
+
+        <!--BURASI-->
+
+
+        <div id="news" class="col-lg-9 col-md-9 col-sm-8">
+
+
+
+            <!--Haberler-->
+            <div class="row " id="content">
+
+
+
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.NewsTB_get().Take(15))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+
+                        <div class="k col-lg-6 col-md-6 col-sm-6">
+
+                            <div class="panel panel-default">
+
+
+                                @if (item.CategoryID == 1)
+                                {
+                                    <div class="post-anime-ribbon">@item.Category_Name</div>}
+
+
+                                @if (item.CategoryID == 2)
+                                {
+                                    <div class="post-manga-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 3)
+                                {
+                                    <div class="post-oyun-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 4)
+                                {
+                                    <div class="post-cosplay-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 5)
+                                {
+                                    <div class="post-etkinlik-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 6)
+                                {
+                                    <div class="post-sanat-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 7)
+                                {
+                                    <div class="post-özel-ribbon">@item.Category_Name</div>
+                                }
+
+                                @if (item.CategoryID == 8)
+                                {
+                                    <div class="post-figür-ribbon">@item.Category_Name</div>
+                                }
+
+                                @if (item.CategoryID == 9)
+                                {
+                                    <div class="post-yemek-ribbon">@item.Category_Name</div>
+                                }
+
+
+                                @if (item.CategoryID == 10)
+                                {
+                                    <div class="post-film-ribbon">@item.Category_Name</div>
+                                }
+
+
+                                @if (item.CategoryID == 11)
+                                {
+                                    <div class="post-vocaloid-ribbon">@item.Category_Name</div>
+                                }
+
+                                @if (item.CategoryID == 12)
+                                {
+                                    <div class="post-ürün-ribbon">@item.Category_Name</div>
+                                }
+                                @if (item.CategoryID == 13)
+                                {
+                                    <div class="post-müzik-ribbon">@item.Category_Name</div>
+                                }
+
+                                <p class="nesw_day">@item.Date</p>
+                                <div class="panel-body">
+
+                                    @if (item.CategoryID == 1)
+                                    {
+                                        <p class="news_title anime"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+
+                                    @if (item.CategoryID == 2)
+                                    {
+                                        <p class="news_title manga"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 3)
+                                    {
+                                        <p class="news_title oyun"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 4)
+                                    {
+                                        <p class="news_title cosplay"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 5)
+                                    {
+                                        <p class="news_title etkinlik"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 6)
+                                    {
+                                        <p class="news_title sanat"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 7)
+                                    {
+                                        <p class="news_title ozel"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 8)
+                                    {
+                                        <p class="news_title figur"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 9)
+                                    {
+                                        <p class="news_title yemek"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 10)
+                                    {
+                                        <p class="news_title film"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 11)
+                                    {
+                                        <p class="news_title vocaloid"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 12)
+                                    {
+                                        <p class="news_title urun"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+                                    @if (item.CategoryID == 13)
+                                    {
+                                        <p class="news_title muzik"><a onclick="haberoku(@item.ID)">@item.News_Title</a></p>}
+
+
+
+                                    @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.BlogFoto_TB_get(item.ID))
+                                    {
+                                        <a onclick="haberoku(@item.ID)">
+                                            <img class="img-responsive" src="@item2.FotoURL" alt="@item2.FotoName" style="width: 100%; margin-bottom: 7px" />
+                                        </a>
+
+
+                                    }
+                                    }
+
+
+                                    @if (item.News_Description == "" || item.News_Description == null || item.News_Description.Length < 150)
+                                    {
+                                        <p> @Html.Raw(item.News_Description)</p>
+
+                                    }
+                                    else
+                                    {
+                                        <p>@Html.Raw(item.News_Description.Substring(0, 450))...</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+            </div>
+
+        </div>
+
+        <!--Haberler-->
+        <!--Side Bar-->
+
+
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-4">
+
+            <!--Arama Yap-->
+
+
+
+            <div class="panel panel-default input-group">
+                <input type="text" class="form-control" placeholder="Anime,Naruto,Miku...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Git!</button>
+                </span>
+            </div><!-- /input-group -->
+            <!--Arama Yap-->
+            <!--Resim List Başlangıç-->
+
+            <div class=" p-left " style="box-sizing: border-box">
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarBannerFoto_TB_get().ToList())
+                {
+
+                    if (item.Statu == 1)
+                    {
+
+
+                        <div class="panel panel-default">
+                            <a href="@item.Link" target="_blank"><img class="genislik" src="@item.FotoURL" /></a>
+                        </div>
+
+                    }
+
+                }
+
+                }
+
+
+            </div>
+
+            <!--Resim List Son-->
+            <!--Reklam Başlangı-->
+
+            <div class="panel panel-default pdngzero " style="box-sizing: border-box">
+
+
+                <div>
+                    <p class=" nsa_title1">Sponsor Reklam</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+
+
+
+
+
+            </div>
+
+
+
+            <!--Reklam Son-->
+            <!--En Son Kategori Haberleri-->
+
+
+
+            <div class="panel panel-default pdngzero" style="box-sizing: border-box">
+
+
+                <div>
+                    <p class=" nsa_title1">En Son Kategori Haberleri</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Animekat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+
+                        <div class="media" style="margin-top: 0px !important;">
+                            <p class="aen_anime">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+                                @if (item.CategoryID == 1)
+                                {
+
+
+                                    <h4 class="media-heading anime"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Mangakat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_manga">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 2)
+                                {
+
+
+                                    <h4 class="media-heading manga"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Oyunkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_game">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+
+                                @if (item.CategoryID == 3)
+                                {
+
+
+                                    <h4 class="media-heading oyun"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Cosplaykat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_cosplay">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+                                @if (item.CategoryID == 4)
+                                {
+
+
+                                    <h4 class="media-heading cosplay"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Etkinlikkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_event">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+
+
+                                @if (item.CategoryID == 5)
+                                {
+
+
+                                    <h4 class="media-heading etkinlik"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Sanatkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_art">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 6)
+                                {
+
+
+                                    <h4 class="media-heading sanat"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Ozelkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_special">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 7)
+                                {
+
+
+                                    <h4 class="media-heading ozel"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Figurkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_figure">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 8)
+                                {
+
+
+                                    <h4 class="media-heading figur"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Yemekkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_food">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 9)
+                                {
+
+
+                                    <h4 class="media-heading yemek"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Filmkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_movie">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 10)
+                                {
+
+
+                                    <h4 class="media-heading film"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Vocaloidkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_vocaloid">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 11)
+                                {
+
+
+                                    <h4 class="media-heading vocaloid"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Urunkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_product">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 12)
+                                {
+
+
+                                    <h4 class="media-heading urun"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+
+
+
+
+
+                @{foreach (var item in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.Muzikkat_get().Take(1))
+                {
+
+
+                    if (item.Statu == 1)
+                    {
+                        <div class="media">
+                            <p class="aen_music">
+                                <a href="/news/anime">@item.Category_Name</a>
+                            </p>
+                            <div class="media-left">
+
+                                @{foreach (var item2 in AnimexEntertainmentNetwork.Web.Content.Class.Kontrol.SidebarFoto_TB_get(item.ID))
+                                {
+
+
+                                    <a href="#">
+                                        <img alt="@item.News_Title" class="media-object" style="width: 64px; height: 64px; margin-left: 10px; margin-bottom:10px;" src="@item2.FotoURL" data-holder-rendered="true">
+
+                                    </a>
+
+
+                                }
+
+                                }
+
+                            </div>
+                            <div class="media-body">
+                                @if (item.CategoryID == 13)
+                                {
+
+
+                                    <h4 class="media-heading muzik"><a onclick="haberoku(@item.ID)"> @item.News_Title</a></h4>
+                                }
+
+
+
+                                <p class="news_day_sidebar">@item.Date</p>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                }
+
+            </div>
+            <!--En Son Kategori Haberleri-->
+            <!--Reklam Başlangı-->
+
+            <div class="panel panel-default pdngzero ">
+
+
+                <div>
+                    <p class=" nsa_title1">Sponsor Reklam</p>
+                </div><!-- /.box-header -->
+                <!-- entry-->
+                <div>
+
+                </div>
+            </div>
+
+
+
+            <!--Reklam Son-->
+
+        </div>
+        <!--Side Bar-->
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               
+
+                            <script type="text/javascript">
+                                $(function () {
+
+                                    $('#content').masonry({
+                                        itemSelector: '.k'
+                                    });
+
+                                    var $container = $('#content');
+                                    $container.imagesLoaded(function () {
+                                        $container.masonry({
+                                            itemSelector: '.k',
+                                            isAnimated: true
+                                        });
+                                    });
+
+
+
+                                });
+                            </script>
+
+                            <script type="text/javascript">
+                                var _speedMark = new Date();
+                            </script>
+                            <script src="~/Content/Css/ac/jquery.lazyload.min.js"></script>
+                            @*<script src="~/Content/JavaScript/ac/ac.base.js"></script>
+
+
+                            <script src="~/Content/JavaScript/ac/ac.page.index.js"></script>*@
+
+
+
+@*yedek script bozulursa diye*@
+
+@*<script>
+
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+
+
+
+
+</script>*@
+
+<script>
+        $('.owl-carousel').owlCarousel({
+            items: 5,
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            merge: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: true
+                },
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: true
+                },
+                 1200: {
+                     items: 5,
+                    nav: true,
+                    loop: true
+        }
+
+            }
+        });
+
+    </script>
+
+
+
+
+
+
