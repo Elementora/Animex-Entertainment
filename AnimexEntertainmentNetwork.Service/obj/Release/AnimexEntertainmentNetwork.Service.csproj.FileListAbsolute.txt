@@ -1,0 +1,55 @@
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.dll.config
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Helpers.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Mvc.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Razor.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Helpers.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Mvc.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Razor.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.dll.config
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.csprojAssemblyReference.cache
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.csproj.CopyComplete
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.csproj.AssemblyReference.cache
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.csproj.CoreCompileInputs.cache
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.dll.config
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Service.pdb
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Helpers.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Mvc.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Razor.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.pdb
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\AnimexEntertainmentNetwork.Data.dll.config
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Helpers.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Mvc.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.Razor.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.csproj.CopyComplete
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Service\obj\Release\AnimexEntertainmentNetwork.Service.pdb
