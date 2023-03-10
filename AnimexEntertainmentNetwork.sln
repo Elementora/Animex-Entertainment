@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimexEntertainmentNetwork.Aut", "AnimexEntertainmentNetwork.Aut\AnimexEntertainmentNetwork.Aut.csproj", "{3288649D-6CCD-4CCC-B59C-B2981C8064AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimexEntertainmentNetwork.Data", "AnimexEntertainmentNetwork.Data\AnimexEntertainmentNetwork.Data.csproj", "{FE417A5C-CEDC-414A-A96D-894952F32BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimexEntertainmentNetwork.IOC", "AnimexEntertainmentNetwork.IOC\AnimexEntertainmentNetwork.IOC.csproj", "{275AB50C-3E8A-4C92-A366-A5FA649A9569}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimexEntertainmentNetwork.Service", "AnimexEntertainmentNetwork.Service\AnimexEntertainmentNetwork.Service.csproj", "{19D7B7C2-2587-4B92-A80F-0AC249BFDD1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimexEntertainmentNetwork.Web", "AnimexEntertainmentNetwork.Web\AnimexEntertainmentNetwork.Web.csproj", "{28E6314C-F703-4045-999A-99E39828FF86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3288649D-6CCD-4CCC-B59C-B2981C8064AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3288649D-6CCD-4CCC-B59C-B2981C8064AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3288649D-6CCD-4CCC-B59C-B2981C8064AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3288649D-6CCD-4CCC-B59C-B2981C8064AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE417A5C-CEDC-414A-A96D-894952F32BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE417A5C-CEDC-414A-A96D-894952F32BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE417A5C-CEDC-414A-A96D-894952F32BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE417A5C-CEDC-414A-A96D-894952F32BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{275AB50C-3E8A-4C92-A366-A5FA649A9569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275AB50C-3E8A-4C92-A366-A5FA649A9569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275AB50C-3E8A-4C92-A366-A5FA649A9569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275AB50C-3E8A-4C92-A366-A5FA649A9569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19D7B7C2-2587-4B92-A80F-0AC249BFDD1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19D7B7C2-2587-4B92-A80F-0AC249BFDD1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19D7B7C2-2587-4B92-A80F-0AC249BFDD1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19D7B7C2-2587-4B92-A80F-0AC249BFDD1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E6314C-F703-4045-999A-99E39828FF86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E6314C-F703-4045-999A-99E39828FF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E6314C-F703-4045-999A-99E39828FF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E6314C-F703-4045-999A-99E39828FF86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
