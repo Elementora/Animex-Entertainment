@@ -1,0 +1,61 @@
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.dll.config
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AntiXssLibrary.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Antlr3.Runtime.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\HtmlSanitizationLibrary.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Helpers.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Mvc.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Razor.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AntiXssLibrary.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Antlr3.Runtime.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\HtmlSanitizationLibrary.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Helpers.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Mvc.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Razor.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.dll
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.pdb
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.csprojAssemblyReference.cache
+C:\Users\Elementora\Documents\Visual Studio 2013\Projects\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.csproj.CopyComplete
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.dll.config
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AnimexEntertainmentNetwork.Aut.pdb
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AntiXssLibrary.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Antlr3.Runtime.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\HtmlSanitizationLibrary.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Helpers.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Mvc.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Razor.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Deployment.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Razor.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\AntiXssLibrary.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\Antlr3.Runtime.pdb
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\HtmlSanitizationLibrary.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Helpers.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Mvc.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.Razor.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Deployment.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\bin\Release\System.Web.WebPages.Razor.xml
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.csproj.AssemblyReference.cache
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.csproj.CoreCompileInputs.cache
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.csproj.CopyComplete
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.dll
+C:\Users\Ersan\Desktop\Web Dölümanlar\AnimexEntertainmentNetwork\AnimexEntertainmentNetwork.Aut\obj\Release\AnimexEntertainmentNetwork.Aut.pdb
